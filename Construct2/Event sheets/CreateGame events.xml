@@ -3,7 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>CreateGame events</name>
     <events>
-        <include>Login events</include>
+        <include>Common events</include>
         <event-block sid="324769876362184">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="672110316046089" type="System" />

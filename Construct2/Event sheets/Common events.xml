@@ -3,6 +3,17 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Common events</name>
     <events>
+        <variable constant="0" name="selectedOpponent" sid="197833312860567" static="0" type="number">-1</variable>
+        <event-block sid="698000686215690">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="565233590034751" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set selection" sid="481490856780396" type="SelectOpponent">
+                    <param id="0" name="Index">selectedOpponent</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="333579995380634">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="214696229069030" type="System">
@@ -87,7 +98,7 @@
             <actions>
                 <action id="0" name="Call function" sid="624942126230670" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp; tokenat( Ethereum.CurrentCallbackResponse, 0, &quot;,&quot;)</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
                 </action>
             </actions>
             <sub-events>
@@ -96,7 +107,12 @@
                         <condition id="-8" name="Compare two values" sid="500632132906677" type="System">
                             <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse,0,&quot;,&quot;))</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="732648406622165" type="System">
+                            <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse,1,&quot;,&quot;))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -114,6 +130,11 @@
                         <condition id="-8" name="Compare two values" sid="103147120433053" type="System">
                             <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse, 0, &quot;,&quot;))</param>
                             <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="369093743617785" type="System">
+                            <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse,1,&quot;,&quot;))</param>
+                            <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">1</param>
                         </condition>
                     </conditions>
@@ -124,6 +145,52 @@
                         </action>
                         <action id="-2" name="Go to layout" sid="624360751567216" type="System">
                             <param id="0" name="Layout">RevealGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="691606080887060">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="576509238728743" type="System">
+                            <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse,0,&quot;,&quot;))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="351595157672776" type="System">
+                            <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse,1,&quot;,&quot;))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="616907945871831" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Answer Game&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="218218514456869" type="System">
+                            <param id="0" name="Layout">WaitingForOpponentAnswer</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="987097981795593">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="433577743359885" type="System">
+                            <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse, 0, &quot;,&quot;))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="252085228377640" type="System">
+                            <param id="0" name="First value">int(tokenat(Ethereum.CurrentCallbackResponse,1,&quot;,&quot;))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="961920901035417" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="633568320218137" type="System">
+                            <param id="0" name="Layout">WaitingForOpponentReveal</param>
                         </action>
                     </actions>
                 </event-block>
