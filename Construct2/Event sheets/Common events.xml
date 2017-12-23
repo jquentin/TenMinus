@@ -218,20 +218,6 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="141698063122977">
-            <conditions>
-                <condition id="0" name="On function" sid="216916031083557" type="Function">
-                    <param id="0" name="Name">&quot;GetGameState&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Call" sid="781696695689062" type="Ethereum">
-                    <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
-                    <param id="1" name="Parameters">Function.Param(0)</param>
-                    <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="297558479420558">
             <conditions>
                 <condition id="0" name="On function" sid="538490453850835" type="Function">
