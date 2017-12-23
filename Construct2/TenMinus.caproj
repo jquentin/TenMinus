@@ -173,6 +173,7 @@
         <event-sheet>CreateGame events.xml</event-sheet>
         <event-sheet>AnswerGame events.xml</event-sheet>
         <event-sheet>RevealGame events.xml</event-sheet>
+        <event-sheet>Common events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
