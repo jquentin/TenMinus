@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>AnswerGame events</name>
+    <events>
+        <include>Login events</include>
+        <event-block sid="854685189867181">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="952838370120216" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="580820461052588" type="GameStateDescription">
+                    <param id="0" name="Text">&quot;Answer a game started by opponent&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

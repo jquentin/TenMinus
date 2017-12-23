@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>CreateGame events</name>
+    <events>
+        <include>Login events</include>
+        <event-block sid="324769876362184">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="672110316046089" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="584495095816457" type="GameStateDescription">
+                    <param id="0" name="Text">&quot;Create a new Game&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

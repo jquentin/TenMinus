@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>RevealGame events</name>
+    <events>
+        <include>Login events</include>
+        <event-block sid="769527925295857">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="833366057502188" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="728974918255314" type="GameStateDescription">
+                    <param id="0" name="Text">&quot;Reveal your card&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
