@@ -47,7 +47,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TextBox" uid="33">
+                <instance type="ChoosePassword" uid="33">
                     <properties>
                         <text></text>
                         <placeholder>Password</placeholder>

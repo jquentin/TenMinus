@@ -13,10 +13,10 @@
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Ethereum" version="1">Ethereum</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
-        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
@@ -47,23 +47,8 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
-        <object-type name="Title" sid="567985413000262">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Label" sid="1291786171480263">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="NameTextBox" sid="1469320512466032">
-            <plugin id="TextBox" />
-        </object-type>
         <object-type name="JoinButton" sid="3300053319493115">
             <plugin id="Button" />
-        </object-type>
-        <object-type name="ChatLog" sid="5408975575978266">
-            <plugin id="TextBox" />
-        </object-type>
-        <object-type name="ChatTextBox" sid="3964265403639984">
-            <plugin id="TextBox" />
         </object-type>
         <object-type name="PeerList" sid="6280765575925442">
             <plugin id="List" />
@@ -73,9 +58,6 @@
         </object-type>
         <object-type name="Function" sid="6713570013783801">
             <plugin id="Function" />
-        </object-type>
-        <object-type name="ViewTutorial" sid="8458696887169516">
-            <plugin id="Button" />
         </object-type>
         <object-type name="Browser" sid="8731513663264036">
             <plugin id="Browser" />
@@ -94,69 +76,16 @@
                 <instance-variable name="opponentListString" sid="900003855150419" type="string" />
             </instance-variables>
         </object-type>
-        <object-type name="OpponentListString" sid="310320596464347">
-            <plugin id="LocalStorage" />
-        </object-type>
         <object-type global="1" name="Console" sid="679824875403673">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Sprite" sid="694521901317087">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="990346599751076" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Sprite2" sid="852724270313502">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="565345833419575" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Sprite3" sid="986067975871552">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="180273810624407" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Sprite4" sid="854888144227712">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="337940505422792" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="TextBox" sid="121550015099588">
+        <object-type name="ChoosePassword" sid="121550015099588">
             <plugin id="TextBox" />
         </object-type>
         <object-type name="YouPlayed" sid="143984243166142">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Text" sid="903706360906569">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Text2" sid="880402229429225">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Text3" sid="917700800157446">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Text4" sid="564106325503984">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Text5" sid="746812216288245">
-            <plugin id="Text" />
-        </object-type>
         <object-type global="1" name="GameStateDescription" sid="508725372636400">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Text6" sid="219708550444217">
             <plugin id="Text" />
         </object-type>
         <object-type name="Card" sid="318392768307316">
@@ -223,6 +152,12 @@
         <object-type name="ChooseOpponent" sid="730594463605094">
             <plugin id="TextBox" />
         </object-type>
+        <object-type name="Ethereum" sid="527381323273614">
+            <plugin id="Ethereum" />
+        </object-type>
+        <object-type global="1" name="YourAccount" sid="826383347837228">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -243,7 +178,12 @@
         <global-instance type="Keyboard" uid="9" />
         <global-instance type="Function" uid="10" />
         <global-instance type="Browser" uid="13" />
-        <global-instance type="OpponentListString" uid="16" />
+        <global-instance type="Ethereum" uid="8">
+            <properties>
+                <contract-address>0x680eec93545167219e7d248a44ac4017af1c2bab</contract-address>
+                <contract-abi>[{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;card&quot;,&quot;type&quot;:&quot;uint8&quot;},{&quot;name&quot;:&quot;password&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;name&quot;:&quot;Reveal&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;password&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;card&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;name&quot;:&quot;TestSha&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bytes32&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;card&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;name&quot;:&quot;AnswerGame&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:true,&quot;stateMutability&quot;:&quot;payable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;GetPlayersInteracting&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;GetGameState&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;state&quot;,&quot;type&quot;:&quot;uint8&quot;},{&quot;name&quot;:&quot;isPlayer&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;cardHash&quot;,&quot;type&quot;:&quot;bytes32&quot;}],&quot;name&quot;:&quot;InitiateGame&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:true,&quot;stateMutability&quot;:&quot;payable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;GetPlayersWaitingForAnswer&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;GetPlayersWaitingForReveal&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:false,&quot;name&quot;:&quot;player1&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;player2&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;state&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;name&quot;:&quot;GameStateChanged&quot;,&quot;type&quot;:&quot;event&quot;}]</contract-abi>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder />
     <music-folder />

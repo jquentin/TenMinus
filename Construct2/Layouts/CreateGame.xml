@@ -29,31 +29,6 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Card" uid="19">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <value>0</value>
-                    </instance-variables>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-92</x>
-                        <y>300</y>
-                        <z>0</z>
-                        <width>73</width>
-                        <height>98</height>
-                        <depth>0</depth>
-                        <hotspotX>0.506849289</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Card" uid="20">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -224,7 +199,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TextBox" uid="21">
+                <instance type="ChoosePassword" uid="21">
                     <properties>
                         <text></text>
                         <placeholder>Password</placeholder>

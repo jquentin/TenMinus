@@ -4,6 +4,18 @@
     <name>Login events</name>
     <events>
         <variable constant="0" name="selectedOpponent" sid="472130101832321" static="0" type="number">-1</variable>
+        <event-block sid="630387977233046">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="587252779658945" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="993321012060439" type="YourAccount">
+                    <param id="0" name="Text">&quot;Your account:&quot; &amp; newline &amp; Ethereum.CurrentAccount</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="671131440050171">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="458832891315414" type="System" />
@@ -15,6 +27,29 @@
                 </action>
                 <action id="0" name="Set selection" sid="294058835302708" type="SelectOpponent">
                     <param id="0" name="Index">selectedOpponent</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="616481042805014">
+            <conditions>
+                <condition id="1" name="On selection changed" sid="402868890028086" type="SelectOpponent" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="273126381155532" type="SelectOpponent">
+                    <param id="0" name="Instance variable">currentGameState</param>
+                    <param id="1" name="Value">Function.Call(&quot;GetGameState&quot;, SelectOpponent.SelectedText)</param>
+                </action>
+                <action id="0" name="Call function" sid="617569112492888" type="Function">
+                    <param id="0" name="Name">&quot;UpdateUI&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-10" name="Set value" sid="867332296432529" type="SelectOpponent">
+                    <param id="0" name="Instance variable">currentSelection</param>
+                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
+                </action>
+                <action id="-9" name="Set value" sid="646932537080328" type="System">
+                    <param id="0" name="Variable">selectedOpponent</param>
+                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
                 </action>
             </actions>
         </event-block>
@@ -69,7 +104,7 @@
             <actions>
                 <action id="0" name="Call function" sid="235557384978811" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Update UI&quot;</param>
                 </action>
             </actions>
             <sub-events>
@@ -130,29 +165,6 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="616481042805014">
-            <conditions>
-                <condition id="1" name="On selection changed" sid="402868890028086" type="SelectOpponent" />
-            </conditions>
-            <actions>
-                <action id="-10" name="Set value" sid="273126381155532" type="SelectOpponent">
-                    <param id="0" name="Instance variable">currentGameState</param>
-                    <param id="1" name="Value">Function.Call(&quot;GetGameState&quot;, SelectOpponent.SelectedText)</param>
-                </action>
-                <action id="0" name="Call function" sid="617569112492888" type="Function">
-                    <param id="0" name="Name">&quot;UpdateUI&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-                <action id="-10" name="Set value" sid="867332296432529" type="SelectOpponent">
-                    <param id="0" name="Instance variable">currentSelection</param>
-                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
-                </action>
-                <action id="-9" name="Set value" sid="646932537080328" type="System">
-                    <param id="0" name="Variable">selectedOpponent</param>
-                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="115869038643601">
             <conditions>
                 <condition id="0" name="On function" sid="572943167756619" type="Function">
@@ -177,50 +189,13 @@
                     <param id="0" name="Name">&quot;GetGameState&quot;</param>
                 </condition>
             </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="316551457713397">
-                    <conditions>
-                        <condition id="1" name="Compare parameter" sid="146280346350208" type="Function">
-                            <param id="0" name="Index">0</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Test Game Waiting for Reveal&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="454677440893655" type="Function">
-                            <param id="0" name="Value">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="646354707381512">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="707391054254446" type="System" />
-                        <condition id="1" name="Compare parameter" sid="187916938077459" type="Function">
-                            <param id="0" name="Index">0</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Test Game Waiting for Answer&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="882870312275734" type="Function">
-                            <param id="0" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="656777158774054">
-                    <conditions>
-                        <condition id="-6" name="Every X seconds" sid="346036420810452" type="System">
-                            <param id="0" name="Interval (seconds)">1.0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="17" name="Execute Javascript" sid="411446664589970" type="Browser">
-                            <param id="0" name="Javascript">&quot;myFunction();&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
+            <actions>
+                <action id="0" name="Call" sid="350640166065202" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                    <param id="1" name="Parameters">&quot;&quot;</param>
+                    <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
