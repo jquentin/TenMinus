@@ -17,11 +17,14 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
     </used-plugins>
-    <used-behaviors />
+    <used-behaviors>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -93,6 +96,11 @@
             <instance-variables>
                 <instance-variable name="value" sid="152864460979550" type="number" />
             </instance-variables>
+            <behaviors>
+                <behavior-type name="CustomMovement" sid="597119491492356">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="51" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="728689249166742" speed="0">
                     <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
@@ -158,6 +166,9 @@
         <object-type global="1" name="YourAccount" sid="826383347837228">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Mouse" sid="628929294118667">
+            <plugin id="Mouse" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -185,6 +196,7 @@
                 <contract-abi>[{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;card&quot;,&quot;type&quot;:&quot;uint8&quot;},{&quot;name&quot;:&quot;password&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;name&quot;:&quot;Reveal&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;password&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;card&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;name&quot;:&quot;TestSha&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bytes32&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;card&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;name&quot;:&quot;AnswerGame&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:true,&quot;stateMutability&quot;:&quot;payable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;GetPlayersInteracting&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;GetGameState&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;state&quot;,&quot;type&quot;:&quot;uint8&quot;},{&quot;name&quot;:&quot;isPlayer&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;opponent&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;cardHash&quot;,&quot;type&quot;:&quot;bytes32&quot;}],&quot;name&quot;:&quot;InitiateGame&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:true,&quot;stateMutability&quot;:&quot;payable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;GetPlayersWaitingForAnswer&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;GetPlayersWaitingForReveal&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:false,&quot;name&quot;:&quot;player1&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;player2&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;state&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;name&quot;:&quot;GameStateChanged&quot;,&quot;type&quot;:&quot;event&quot;}]</contract-abi>
             </properties>
         </global-instance>
+        <global-instance type="Mouse" uid="0" />
     </global-instances>
     <sounds-folder />
     <music-folder />

@@ -14,5 +14,51 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="698213329208806">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="856665222830753" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Card</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="638062678495166" type="Function">
+                    <param id="0" name="Name">&quot;PlayCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="466177458568650">
+            <conditions>
+                <condition id="0" name="On function" sid="271408816026516" type="Function">
+                    <param id="0" name="Name">&quot;PlayCard&quot;</param>
+                </condition>
+                <condition id="-14" name="Pick by unique ID" sid="491135469934851" type="Card">
+                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="113870188138866" type="Card">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="806360849910409" type="Card">
+                    <param id="0" name="Which">2</param>
+                    <param id="1" name="Speed">-200</param>
+                </action>
+                <action id="-16" name="Wait" sid="244135529228905" type="System">
+                    <param id="0" name="Seconds">0.6</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="544645819934799" type="Card">
+                    <param id="0" name="Which">2</param>
+                    <param id="1" name="Speed">0</param>
+                </action>
+                <action id="1" name="Send" sid="143132007873688" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;PlayCard&quot;</param>
+                    <param id="1" name="Parameters">ChooseOpponent.Text &amp; &quot;, &quot; &amp; Card.value &amp; &quot;, &quot; &amp; ChoosePassword.Text</param>
+                    <param id="2" name="Callback id">&quot;PlayCard&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
