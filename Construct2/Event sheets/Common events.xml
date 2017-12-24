@@ -82,7 +82,7 @@
                         </action>
                         <action id="0" name="Call" sid="439622923675912" type="Ethereum">
                             <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
-                            <param id="1" name="Parameters">SelectOpponent.SelectedText</param>
+                            <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
                             <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
                         </action>
                     </actions>
@@ -227,7 +227,7 @@
             <actions>
                 <action id="0" name="Call" sid="312374356873888" type="Ethereum">
                     <param id="0" name="Name with parameters types">&quot;GetPlayersInteracting&quot;</param>
-                    <param id="1" name="Parameters">&quot;&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                     <param id="2" name="Callback id">&quot;GetPlayersInteracting&quot;</param>
                 </action>
             </actions>

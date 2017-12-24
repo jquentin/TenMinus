@@ -23,7 +23,7 @@
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
     </used-plugins>
     <used-behaviors>
-        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
+        <behavior author="lunarray" id="lunarray_LiteTween" version="1.700000048">LiteTween</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -97,8 +97,8 @@
                 <instance-variable name="value" sid="152864460979550" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="CustomMovement" sid="597119491492356">
-                    <behavior id="custom" />
+                <behavior-type name="LiteTween" sid="408904690622578">
+                    <behavior id="lunarray_LiteTween" />
                 </behavior-type>
             </behaviors>
             <animation-folder>

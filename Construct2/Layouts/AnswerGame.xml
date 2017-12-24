@@ -40,11 +40,15 @@
                         <value>1</value>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="LiteTween">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -74,11 +78,15 @@
                         <value>2</value>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="LiteTween">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -108,11 +116,15 @@
                         <value>3</value>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="LiteTween">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -142,11 +154,15 @@
                         <value>4</value>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="LiteTween">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -176,11 +192,15 @@
                         <value>5</value>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="LiteTween">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>

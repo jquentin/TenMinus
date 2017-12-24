@@ -42,21 +42,42 @@
                 <action id="5" name="Set frame" sid="113870188138866" type="Card">
                     <param id="0" name="Frame number">0</param>
                 </action>
-                <action behavior="CustomMovement" id="2" name="Set speed" sid="806360849910409" type="Card">
-                    <param id="0" name="Which">2</param>
-                    <param id="1" name="Speed">-200</param>
+                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="156569093845860" type="Card">
+                    <param id="0" name="Tweened property">8</param>
+                    <param id="1" name="Function">3</param>
+                    <param id="2" name="Target">str(Self.Y - 100)</param>
+                    <param id="3" name="Duration">0.6</param>
+                    <param id="4" name="Enforce mode">1</param>
+                </action>
+                <action behavior="LiteTween" id="10" name="Start" sid="490560977952840" type="Card">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">0</param>
                 </action>
                 <action id="-16" name="Wait" sid="244135529228905" type="System">
-                    <param id="0" name="Seconds">0.6</param>
+                    <param id="0" name="Seconds">0.7</param>
                 </action>
-                <action behavior="CustomMovement" id="2" name="Set speed" sid="544645819934799" type="Card">
-                    <param id="0" name="Which">2</param>
-                    <param id="1" name="Speed">0</param>
+                <action id="2" name="Estimate Gas" sid="755005711114162" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;InitiateGame&quot;</param>
+                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Card.value</param>
+                    <param id="2" name="Callback id">&quot;InitiateGameEstimateGas&quot;</param>
                 </action>
                 <action id="1" name="Send" sid="143132007873688" type="Ethereum">
-                    <param id="0" name="Name with parameters types">&quot;PlayCard&quot;</param>
-                    <param id="1" name="Parameters">ChooseOpponent.Text &amp; &quot;, &quot; &amp; Card.value &amp; &quot;, &quot; &amp; ChoosePassword.Text</param>
-                    <param id="2" name="Callback id">&quot;PlayCard&quot;</param>
+                    <param id="0" name="Name with parameters types">&quot;InitiateGame&quot;</param>
+                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Card.value</param>
+                    <param id="2" name="Callback id">&quot;InitiateGame&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="953668786658219">
+            <conditions>
+                <condition id="3" name="On function callback" sid="827688255001418" type="Ethereum">
+                    <param id="0" name="ID">&quot;InitiateGameEstimateGas&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="578000122972193" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                 </action>
             </actions>
         </event-block>

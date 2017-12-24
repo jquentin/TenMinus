@@ -14,5 +14,43 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="242599994986192">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="382719485066446" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Card</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="713543883670979" type="Function">
+                    <param id="0" name="Name">&quot;PlayCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="352159206391989">
+            <conditions>
+                <condition id="0" name="On function" sid="969172898941706" type="Function">
+                    <param id="0" name="Name">&quot;PlayCard&quot;</param>
+                </condition>
+                <condition id="-14" name="Pick by unique ID" sid="216045994169472" type="Card">
+                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="764408167828468" type="Card">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="578992697469453" type="System">
+                    <param id="0" name="Seconds">0.6</param>
+                </action>
+                <action id="1" name="Send" sid="861355724608099" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;PlayCard&quot;</param>
+                    <param id="1" name="Parameters">ChooseOpponent.Text &amp; &quot;, &quot; &amp; Card.value &amp; &quot;, &quot; &amp; ChoosePassword.Text</param>
+                    <param id="2" name="Callback id">&quot;PlayCard&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
