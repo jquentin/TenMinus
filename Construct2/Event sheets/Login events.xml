@@ -13,6 +13,13 @@
                     <param id="0" name="Name">&quot;UpdateOpponentList&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="3" name="Set font size" sid="696952617216418" type="YourAccount">
+                    <param id="0" name="Size (pt)">6</param>
+                </action>
+                <action id="6" name="Set CSS style" sid="582029963113348" type="SelectOpponent">
+                    <param id="0" name="Property name">&quot;font-size&quot;</param>
+                    <param id="1" name="Value">&quot;20px&quot;</param>
+                </action>
             </actions>
         </event-block>
     </events>

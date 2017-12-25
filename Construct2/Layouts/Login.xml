@@ -15,7 +15,7 @@
     <layers>
         <layer name="Layer 0" sid="8722530541249526">
             <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
+            <background-color>0,0,0</background-color>
             <transparent>0</transparent>
             <parallax>
                 <x>1</x>
@@ -29,33 +29,6 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Console" uid="17">
-                    <properties>
-                        <text>Text</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-16</font>
-                        <color>0,0,0</color>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
-                        <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
-                        <line-height>0</line-height>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>340</x>
-                        <y>457</y>
-                        <z>0</z>
-                        <width>200</width>
-                        <height>30</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="SelectOpponent" uid="37">
                     <properties>
                         <items>Loading Current Games...</items>
@@ -64,7 +37,7 @@
                         <enabled>Yes</enabled>
                         <type>List box</type>
                         <multi-select>No</multi-select>
-                        <auto-font-size>Yes</auto-font-size>
+                        <auto-font-size>No</auto-font-size>
                         <id-optional></id-optional>
                     </properties>
                     <instance-variables>
@@ -78,8 +51,8 @@
                         <x>13</x>
                         <y>45</y>
                         <z>0</z>
-                        <width>211</width>
-                        <height>168</height>
+                        <width>189.000030518</width>
+                        <height>259.000152588</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -87,10 +60,10 @@
                 </instance>
                 <instance type="GameStateDescription" uid="14">
                     <properties>
-                        <text></text>
+                        <text>Choose an opponent</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-18.6667,700,0</font>
-                        <color>0,0,0</color>
+                        <color>255,255,255</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Top</vertical-alignment>
                         <hotspot>Top-left</hotspot>
@@ -100,11 +73,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>257</x>
-                        <y>23</y>
+                        <x>217</x>
+                        <y>10.00025177</y>
                         <z>0</z>
-                        <width>338</width>
-                        <height>83</height>
+                        <width>409.000671387</width>
+                        <height>46.0001297</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -117,24 +90,46 @@
                         <text>Your account:</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-10.6667,400,0</font>
-                        <color>0,0,0</color>
+                        <color>255,255,255</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Top</vertical-alignment>
                         <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
+                        <wrapping>Character</wrapping>
                         <line-height>0</line-height>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>16</x>
-                        <y>4</y>
+                        <x>13.000183105</x>
+                        <y>7.499862671</y>
                         <z>0</z>
-                        <width>327</width>
-                        <height>56</height>
+                        <width>188.999664307</width>
+                        <height>35.000274658</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="table" uid="39">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>424.749420166</x>
+                        <y>207.249710083</y>
+                        <z>0</z>
+                        <width>419.000915527</width>
+                        <height>196.000106812</height>
+                        <depth>0</depth>
+                        <hotspotX>0.500177264</hotspotX>
+                        <hotspotY>0.500274301</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

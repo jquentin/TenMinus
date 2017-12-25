@@ -15,7 +15,7 @@
     <layers>
         <layer name="Layer 0" sid="839604617612597">
             <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
+            <background-color>0,0,0</background-color>
             <transparent>0</transparent>
             <parallax>
                 <x>1</x>
@@ -62,11 +62,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>205</x>
-                        <y>300</y>
+                        <x>247.000549316</x>
+                        <y>350</y>
                         <z>0</z>
-                        <width>73</width>
-                        <height>98</height>
+                        <width>40</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0.506849289</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -107,11 +107,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>281</x>
-                        <y>300</y>
+                        <x>287.500579834</x>
+                        <y>350</y>
                         <z>0</z>
-                        <width>73</width>
-                        <height>98</height>
+                        <width>40</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0.506849289</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -152,11 +152,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>360</x>
-                        <y>300</y>
+                        <x>329.499969482</x>
+                        <y>350</y>
                         <z>0</z>
-                        <width>73</width>
-                        <height>98</height>
+                        <width>40</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0.506849289</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -197,11 +197,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>441</x>
-                        <y>300</y>
+                        <x>370.500274658</x>
+                        <y>350</y>
                         <z>0</z>
-                        <width>73</width>
-                        <height>98</height>
+                        <width>40</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0.506849289</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -242,11 +242,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>522</x>
-                        <y>299</y>
+                        <x>411.000335693</x>
+                        <y>350</y>
                         <z>0</z>
-                        <width>73</width>
-                        <height>98</height>
+                        <width>40</width>
+                        <height>60</height>
                         <depth>0</depth>
                         <hotspotX>0.506849289</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -270,8 +270,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>268</x>
-                        <y>157</y>
+                        <x>217</x>
+                        <y>44.999923706</y>
                         <z>0</z>
                         <width>150</width>
                         <height>22</height>
@@ -280,25 +280,231 @@
                         <hotspotY>0</hotspotY>
                     </world>
                 </instance>
-            </instances>
-            <effects />
-        </layer>
-        <layer name="Layer 1" sid="394674603009743">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>1</x>
-                <y>1</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <global>0</global>
-            <use-render-cells>0</use-render-cells>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances>
+                <instance type="Card" uid="4">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>30</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <value>6</value>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="LiteTween">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Grayscale">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>451.750091553</x>
+                        <y>350</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506849289</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Card" uid="6">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>31</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <value>7</value>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="LiteTween">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Grayscale">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>492.501037598</x>
+                        <y>350</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506849289</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Card" uid="11">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>32</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <value>8</value>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="LiteTween">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Grayscale">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>533.999816895</x>
+                        <y>350</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506849289</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Card" uid="12">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>33</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <value>9</value>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="LiteTween">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Grayscale">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>576.000366211</x>
+                        <y>350</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506849289</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Card" uid="16">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>34</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <value>10</value>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="LiteTween">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <tweened-property>Position</tweened-property>
+                                <function>EaseOutBounce</function>
+                                <target>100,100</target>
+                                <target-mode>Absolute</target-mode>
+                                <duration>2.5</duration>
+                                <enforce-mode>Enforce</enforce-mode>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Grayscale">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>618.000244141</x>
+                        <y>350</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>60</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506849289</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="ChoosePassword" uid="21">
                     <properties>
                         <text></text>
@@ -315,8 +521,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>267</x>
-                        <y>189</y>
+                        <x>217</x>
+                        <y>75</y>
                         <z>0</z>
                         <width>150</width>
                         <height>22</height>
@@ -329,6 +535,14 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances />
+    <nonworld-instances>
+        <instance type="CardPack" uid="19">
+            <properties>
+                <width>10</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+    </nonworld-instances>
     <effects />
 </c2layout>

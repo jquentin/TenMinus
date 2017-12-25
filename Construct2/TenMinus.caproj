@@ -37,6 +37,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Login</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -47,7 +48,7 @@
         <prop name="Orientations">Any</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D web</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">Chrome</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
@@ -80,9 +81,6 @@
             <instance-variables>
                 <instance-variable name="opponentListString" sid="900003855150419" type="string" />
             </instance-variables>
-        </object-type>
-        <object-type global="1" name="Console" sid="679824875403673">
-            <plugin id="Text" />
         </object-type>
         <object-type name="ChoosePassword" sid="121550015099588">
             <plugin id="TextBox" />
@@ -178,6 +176,17 @@
         </object-type>
         <object-type name="RevealCard" sid="316623193671343">
             <plugin id="List" />
+        </object-type>
+        <object-type global="1" name="CardPack" sid="124275376495676">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type global="1" name="table" sid="385212655952370">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="305103065983402" speed="5">
+                    <frame duration="1" hotspotX="0.500177" hotspotY="0.500274" original-source="C:\Users\Jeremy\Downloads\table.jpg" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />

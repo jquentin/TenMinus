@@ -25,6 +25,10 @@
                 <action id="0" name="Set text" sid="820518555565540" type="YourAccount">
                     <param id="0" name="Text">&quot;Your account:&quot; &amp; newline &amp; Ethereum.CurrentAccount</param>
                 </action>
+                <action id="0" name="Call function" sid="114954950071944" type="Function">
+                    <param id="0" name="Name">&quot;UpdateOpponentList&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="220687192454267">
@@ -212,14 +216,8 @@
                     <param id="0" name="Type">0</param>
                     <param id="1" name="Message">Function.Param(0)</param>
                 </action>
-                <action id="0" name="Set text" sid="937994152899515" type="Console">
-                    <param id="0" name="Text">Function.Param(0)</param>
-                </action>
                 <action id="-16" name="Wait" sid="530093650031787" type="System">
                     <param id="0" name="Seconds">1.0</param>
-                </action>
-                <action id="0" name="Set text" sid="202816413908379" type="Console">
-                    <param id="0" name="Text">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -289,6 +287,9 @@
                         <action disabled="1" id="0" name="Set selection" sid="825000848199581" type="SelectOpponent">
                             <param id="0" name="Index">SelectOpponent.currentSelection</param>
                         </action>
+                        <action id="0" name="Set selection" sid="221101240678396" type="SelectOpponent">
+                            <param id="0" name="Index">selectedOpponentIndex</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -306,5 +307,6 @@
                 </action>
             </actions>
         </event-block>
+        <comment>Find the index of the previously selected address, so we can re-select it after re-creating all </comment>
     </events>
 </c2eventsheet>

@@ -10,7 +10,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Set text" sid="887221956442165" type="GameStateDescription">
-                    <param id="0" name="Text">&quot;Waiting for the opponent to answer&quot;</param>
+                    <param id="0" name="Text">&quot;Waiting for the opponent to reveal his card&quot;</param>
                 </action>
                 <action id="-27" name="Set effect enabled" sid="680995145944440" type="Card">
                     <param id="0" name="Mode">0</param>
