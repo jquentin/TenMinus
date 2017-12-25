@@ -12,10 +12,6 @@
                 <action id="0" name="Set text" sid="381996947872995" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Waiting for the opponent to answer&quot;</param>
                 </action>
-                <action id="-27" name="Set effect enabled" sid="322344103334088" type="Card">
-                    <param id="0" name="Mode">0</param>
-                    <param id="1" name="Effect">&quot;Grayscale&quot;</param>
-                </action>
             </actions>
         </event-block>
     </events>

@@ -23,11 +23,10 @@
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="lunarray" id="lunarray_LiteTween" version="1.700000048">LiteTween</behavior>
     </used-behaviors>
-    <used-effects>
-        <effect author="Scirra" id="grayscale">Grayscale</effect>
-    </used-effects>
+    <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -101,11 +100,6 @@
                     <behavior id="lunarray_LiteTween" />
                 </behavior-type>
             </behaviors>
-            <effects>
-                <effect-type name="Grayscale">
-                    <effect id="grayscale" />
-                </effect-type>
-            </effects>
             <animation-folder>
                 <animation framecount="51" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="728689249166742" speed="0">
                     <frame duration="1" hotspotX="0.521127" hotspotY="0.494949" original-source="C:\Users\Jeremy\Documents\TenMinus\Construct2\Files\cards.png" />
@@ -164,6 +158,11 @@
         </object-type>
         <object-type name="ChooseOpponent" sid="730594463605094">
             <plugin id="TextBox" />
+            <behaviors>
+                <behavior-type name="Flash" sid="127871067625773">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
         </object-type>
         <object-type name="Ethereum" sid="527381323273614">
             <plugin id="Ethereum" />

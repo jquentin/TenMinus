@@ -4,6 +4,7 @@
     <name>CreateGame events</name>
     <events>
         <include>Common events</include>
+        <variable constant="0" name="isWaitingForTransaction" sid="853272457005922" static="0" type="number">0</variable>
         <event-block sid="324769876362184">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="672110316046089" type="System" />
@@ -21,13 +22,42 @@
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">Card</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="275232273048496" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="638062678495166" type="Function">
-                    <param id="0" name="Name">&quot;PlayCard&quot;</param>
-                    <param id="1" name="Parameter {n}">Card.UID</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="996776509901101">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="778264018319286" type="System">
+                            <param id="0" name="First value">Ethereum.IsAddress(ChoosePassword.Text)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">TRUE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="638062678495166" type="Function">
+                            <param id="0" name="Name">&quot;PlayCard&quot;</param>
+                            <param id="1" name="Parameter {n}">Card.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="239725099864824">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="362388516076361" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Flash" id="0" name="Flash" sid="651295284087901" type="ChooseOpponent">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="466177458568650">
             <conditions>
@@ -37,12 +67,12 @@
                 <condition id="-14" name="Pick by unique ID" sid="491135469934851" type="Card">
                     <param id="0" name="Unique ID">Function.Param(0)</param>
                 </condition>
-                <condition id="0" inverted="1" name="Compare text" sid="874143382501655" type="ChooseOpponent">
-                    <param id="0" name="Text">&quot;&quot;</param>
-                    <param id="1" name="Case">0</param>
-                </condition>
             </conditions>
             <actions>
+                <action id="-9" name="Set value" sid="429926812950870" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
                 <action id="5" name="Set frame" sid="113870188138866" type="Card">
                     <param id="0" name="Frame number">0</param>
                 </action>
@@ -80,39 +110,6 @@
                     <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                 </action>
             </actions>
-        </event-block>
-        <event-block sid="522397115672333">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="430444484629695" type="System" />
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="150162097244263">
-                    <conditions>
-                        <condition id="0" name="Compare text" sid="695997285788561" type="ChooseOpponent">
-                            <param id="0" name="Text">&quot;&quot;</param>
-                            <param id="1" name="Case">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-27" name="Set effect enabled" sid="293195393042320" type="Card">
-                            <param id="0" name="Mode">1</param>
-                            <param id="1" name="Effect">&quot;Grayscale&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="288187994007479">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="795678727317609" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-27" name="Set effect enabled" sid="640776142492819" type="Card">
-                            <param id="0" name="Mode">0</param>
-                            <param id="1" name="Effect">&quot;Grayscale&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

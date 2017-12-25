@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Common events</name>
     <events>
+        <variable constant="1" name="FALSE" sid="563071464532105" static="0" type="number">0</variable>
+        <variable constant="1" name="TRUE" sid="500831860645643" static="0" type="number">1</variable>
         <variable constant="0" name="selectedOpponentIndex" sid="197833312860567" static="0" type="number">-1</variable>
         <variable constant="0" name="selectedOpponent" sid="304607072944993" static="0" type="text"></variable>
         <variable constant="0" name="selectedOpponentGameState" sid="158614382337166" static="0" type="number">0</variable>
