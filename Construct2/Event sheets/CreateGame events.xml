@@ -37,6 +37,10 @@
                 <condition id="-14" name="Pick by unique ID" sid="491135469934851" type="Card">
                     <param id="0" name="Unique ID">Function.Param(0)</param>
                 </condition>
+                <condition id="0" inverted="1" name="Compare text" sid="874143382501655" type="ChooseOpponent">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                    <param id="1" name="Case">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="5" name="Set frame" sid="113870188138866" type="Card">
@@ -56,22 +60,18 @@
                 <action id="-16" name="Wait" sid="244135529228905" type="System">
                     <param id="0" name="Seconds">0.7</param>
                 </action>
-                <action id="2" name="Estimate Gas" sid="755005711114162" type="Ethereum">
-                    <param id="0" name="Name with parameters types">&quot;InitiateGame&quot;</param>
-                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Card.value</param>
-                    <param id="2" name="Callback id">&quot;InitiateGameEstimateGas&quot;</param>
-                </action>
                 <action id="1" name="Send" sid="143132007873688" type="Ethereum">
                     <param id="0" name="Name with parameters types">&quot;InitiateGame&quot;</param>
-                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Card.value</param>
+                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Ethereum.Sha3(Card.value, ChoosePassword.Text)</param>
                     <param id="2" name="Callback id">&quot;InitiateGame&quot;</param>
+                    <param id="3" name="Value">int(Ethereum.ToWei(4, &quot;finney&quot;))</param>
                 </action>
             </actions>
         </event-block>
         <event-block sid="953668786658219">
             <conditions>
                 <condition id="3" name="On function callback" sid="827688255001418" type="Ethereum">
-                    <param id="0" name="ID">&quot;InitiateGameEstimateGas&quot;</param>
+                    <param id="0" name="ID">&quot;InitiateGame&quot;</param>
                 </condition>
             </conditions>
             <actions>
@@ -80,6 +80,39 @@
                     <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="522397115672333">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="430444484629695" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="150162097244263">
+                    <conditions>
+                        <condition id="0" name="Compare text" sid="695997285788561" type="ChooseOpponent">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                            <param id="1" name="Case">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-27" name="Set effect enabled" sid="293195393042320" type="Card">
+                            <param id="0" name="Mode">1</param>
+                            <param id="1" name="Effect">&quot;Grayscale&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="288187994007479">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="795678727317609" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-27" name="Set effect enabled" sid="640776142492819" type="Card">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;Grayscale&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

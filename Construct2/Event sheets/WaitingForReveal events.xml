@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>WaitingForReveal events</name>
+    <events>
+        <include>Common events</include>
+        <event-block sid="120190409889227">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="523128185812553" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="887221956442165" type="GameStateDescription">
+                    <param id="0" name="Text">&quot;Waiting for the opponent to answer&quot;</param>
+                </action>
+                <action id="-27" name="Set effect enabled" sid="680995145944440" type="Card">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Grayscale&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

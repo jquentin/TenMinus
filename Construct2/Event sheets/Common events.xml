@@ -3,14 +3,15 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Common events</name>
     <events>
-        <variable constant="0" name="selectedOpponent" sid="197833312860567" static="0" type="number">-1</variable>
+        <variable constant="0" name="selectedOpponent" sid="304607072944993" static="0" type="text"></variable>
+        <variable constant="0" name="selectedOpponentIndex" sid="197833312860567" static="0" type="number">-1</variable>
         <event-block sid="698000686215690">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="565233590034751" type="System" />
             </conditions>
             <actions>
                 <action id="0" name="Set selection" sid="481490856780396" type="SelectOpponent">
-                    <param id="0" name="Index">selectedOpponent</param>
+                    <param id="0" name="Index">selectedOpponentIndex</param>
                 </action>
             </actions>
         </event-block>
@@ -36,8 +37,12 @@
                     <param id="1" name="Parameter {n}"></param>
                 </action>
                 <action id="-9" name="Set value" sid="802278028417653" type="System">
-                    <param id="0" name="Variable">selectedOpponent</param>
+                    <param id="0" name="Variable">selectedOpponentIndex</param>
                     <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
+                </action>
+                <action id="-9" name="Set value" sid="723183094996062" type="System">
+                    <param id="0" name="Variable">selectedOpponent</param>
+                    <param id="1" name="Value">SelectOpponent.SelectedText</param>
                 </action>
             </actions>
         </event-block>
@@ -116,12 +121,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="583457800527855" type="Function">
+                        <action id="0" name="Call function" sid="616907945871831" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;Answer Game&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Waiting for Opponent to Answer Game&quot;</param>
                         </action>
-                        <action id="-2" name="Go to layout" sid="458346741021658" type="System">
-                            <param id="0" name="Layout">AnswerGame</param>
+                        <action id="-2" name="Go to layout" sid="218218514456869" type="System">
+                            <param id="0" name="Layout">WaitingForAnswer</param>
                         </action>
                     </actions>
                 </event-block>
@@ -162,12 +167,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="616907945871831" type="Function">
+                        <action id="0" name="Call function" sid="583457800527855" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;Answer Game&quot;</param>
                         </action>
-                        <action id="-2" name="Go to layout" sid="218218514456869" type="System">
-                            <param id="0" name="Layout">WaitingForOpponentAnswer</param>
+                        <action id="-2" name="Go to layout" sid="458346741021658" type="System">
+                            <param id="0" name="Layout">AnswerGame</param>
                         </action>
                     </actions>
                 </event-block>
@@ -190,7 +195,7 @@
                             <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
                         </action>
                         <action id="-2" name="Go to layout" sid="633568320218137" type="System">
-                            <param id="0" name="Layout">WaitingForOpponentReveal</param>
+                            <param id="0" name="Layout">WaitingForReveal</param>
                         </action>
                     </actions>
                 </event-block>
@@ -255,10 +260,27 @@
                             <param id="0" name="Text">tokenat(Ethereum.CurrentCallbackResponse,loopindex, &quot;,&quot;)</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="263577615876972">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="266260930961019" type="System">
+                                    <param id="0" name="First value">tokenat(Ethereum.CurrentCallbackResponse, loopindex, &quot;,&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">selectedOpponent</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="407974441328649" type="System">
+                                    <param id="0" name="Variable">selectedOpponentIndex</param>
+                                    <param id="1" name="Value">loopindex</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="207374434251633">
                     <conditions>
-                        <condition id="-1" name="Every tick" sid="122408814155476" type="System" />
+                        <condition id="-4" name="Trigger once while true" sid="122408814155476" type="System" />
                     </conditions>
                     <actions>
                         <action id="7" name="Add item" sid="734434362693774" type="SelectOpponent">
@@ -270,6 +292,19 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="803676719616875">
+            <conditions>
+                <condition id="4" name="On event" sid="445573771263878" type="Ethereum">
+                    <param id="0" name="Event">&quot;GameStateChanged&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="289337771673872" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;GameStateChanged&quot;</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

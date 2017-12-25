@@ -12,6 +12,10 @@
                 <action id="0" name="Set text" sid="580820461052588" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Answer a game started by opponent&quot;</param>
                 </action>
+                <action id="-27" name="Set effect enabled" sid="292539093591195" type="Card">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Grayscale&quot;</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="595393635126858">
@@ -29,26 +33,51 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="233480227737459">
+        <event-block sid="481634389841481">
             <conditions>
-                <condition id="0" name="On function" sid="773739194335045" type="Function">
+                <condition id="0" name="On function" sid="670798845278669" type="Function">
                     <param id="0" name="Name">&quot;PlayCard&quot;</param>
                 </condition>
-                <condition id="-14" name="Pick by unique ID" sid="326356446682533" type="Card">
+                <condition id="-14" name="Pick by unique ID" sid="143807826807017" type="Card">
                     <param id="0" name="Unique ID">Function.Param(0)</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="5" name="Set frame" sid="425465183806170" type="Card">
+                <action disabled="1" id="5" name="Set frame" sid="256042863232597" type="Card">
                     <param id="0" name="Frame number">0</param>
                 </action>
-                <action id="-16" name="Wait" sid="367368385455855" type="System">
-                    <param id="0" name="Seconds">0.6</param>
+                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="583021232798165" type="Card">
+                    <param id="0" name="Tweened property">8</param>
+                    <param id="1" name="Function">3</param>
+                    <param id="2" name="Target">str(Self.Y - 100)</param>
+                    <param id="3" name="Duration">0.6</param>
+                    <param id="4" name="Enforce mode">1</param>
                 </action>
-                <action id="1" name="Send" sid="195401038785828" type="Ethereum">
-                    <param id="0" name="Name with parameters types">&quot;PlayCard&quot;</param>
-                    <param id="1" name="Parameters">ChooseOpponent.Text &amp; &quot;, &quot; &amp; Card.value &amp; &quot;, &quot; &amp; ChoosePassword.Text</param>
-                    <param id="2" name="Callback id">&quot;PlayCard&quot;</param>
+                <action behavior="LiteTween" id="10" name="Start" sid="789090855831912" type="Card">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="426264205067213" type="System">
+                    <param id="0" name="Seconds">0.7</param>
+                </action>
+                <action id="1" name="Send" sid="788821619587043" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;AnswerGame&quot;</param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText{###}Card.value</param>
+                    <param id="2" name="Callback id">&quot;AnswerGame&quot;</param>
+                    <param id="3" name="Value">int(Ethereum.ToWei(4, &quot;finney&quot;))</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="530060454153161">
+            <conditions>
+                <condition id="3" name="On function callback" sid="271790116474239" type="Ethereum">
+                    <param id="0" name="ID">&quot;AnswerGame&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="665709068644918" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                 </action>
             </actions>
         </event-block>

@@ -28,7 +28,32 @@
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
-            <instances />
+            <instances>
+                <instance type="RevealCard" uid="7">
+                    <properties>
+                        <items>One;Two;Three;Four;Five;Six;Seven;Eight;Nine;Ten</items>
+                        <tooltip>Reveal your card</tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <type>Dropdown list</type>
+                        <multi-select>No</multi-select>
+                        <auto-font-size>Yes</auto-font-size>
+                        <id-optional></id-optional>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>256</x>
+                        <y>172</y>
+                        <z>0</z>
+                        <width>150</width>
+                        <height>22</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+            </instances>
             <effects />
         </layer>
         <layer name="Layer 1" sid="443411117754229">
@@ -50,7 +75,7 @@
                 <instance type="ChoosePassword" uid="33">
                     <properties>
                         <text></text>
-                        <placeholder>Password</placeholder>
+                        <placeholder>Reveal Password</placeholder>
                         <tooltip></tooltip>
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>

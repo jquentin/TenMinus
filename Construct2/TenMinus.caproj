@@ -25,7 +25,9 @@
     <used-behaviors>
         <behavior author="lunarray" id="lunarray_LiteTween" version="1.700000048">LiteTween</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="grayscale">Grayscale</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -101,6 +103,11 @@
                     <behavior id="lunarray_LiteTween" />
                 </behavior-type>
             </behaviors>
+            <effects>
+                <effect-type name="Grayscale">
+                    <effect id="grayscale" />
+                </effect-type>
+            </effects>
             <animation-folder>
                 <animation framecount="51" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="728689249166742" speed="0">
                     <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
@@ -169,6 +176,9 @@
         <object-type name="Mouse" sid="628929294118667">
             <plugin id="Mouse" />
         </object-type>
+        <object-type name="RevealCard" sid="316623193671343">
+            <plugin id="List" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -176,8 +186,8 @@
         <layout>CreateGame.xml</layout>
         <layout>AnswerGame.xml</layout>
         <layout>RevealGame.xml</layout>
-        <layout>WaitingForOpponentAnswer.xml</layout>
-        <layout>WaitingForOpponentReveal.xml</layout>
+        <layout>WaitingForAnswer.xml</layout>
+        <layout>WaitingForReveal.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Login events.xml</event-sheet>
@@ -185,6 +195,8 @@
         <event-sheet>AnswerGame events.xml</event-sheet>
         <event-sheet>RevealGame events.xml</event-sheet>
         <event-sheet>Common events.xml</event-sheet>
+        <event-sheet>WaitingForAnswer events.xml</event-sheet>
+        <event-sheet>WaitingForReveal events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
