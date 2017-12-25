@@ -29,6 +29,20 @@ contract TenMinus is owned {
         else
             _;
     }
+    
+    function CardToString (uint8 card) internal returns (string sCard)
+    {
+        if (card == 1) return "1";
+        else if (card == 2) return "2";
+        else if (card == 3) return "3";
+        else if (card == 4) return "4";
+        else if (card == 5) return "5";
+        else if (card == 6) return "6";
+        else if (card == 7) return "7";
+        else if (card == 8) return "8";
+        else if (card == 9) return "9";
+        else if (card == 10) return "10";
+    }
 
     struct Game
     {
@@ -76,11 +90,6 @@ contract TenMinus is owned {
         GameStateChanged(updatedGame.player1, updatedGame.player2, updatedGame.state);
     }
     
-    function TestSha(string password, string card) constant returns (bytes32)
-    {
-        return sha3(password, card);
-    }
-    
     function Reveal(address opponent, uint8 card, string password) valueIsCard(card)
     {
         
@@ -88,10 +97,10 @@ contract TenMinus is owned {
             throw;
             
         Game updatedGame = gamesInitiated[msg.sender][opponent];
-        if (sha3 (password, card) == updatedGame.player1CardHash)
+        if (sha3 (password, CardToString(card)) == updatedGame.player1CardHash)
         {
             updatedGame.state = 0;
-            updatedGame.player2Card = card;
+            updatedGame.player1Card = card;
             gamesInitiated[updatedGame.player1][updatedGame.player2] = updatedGame;
             int8 result = ResolveGame (updatedGame);
             int8 base = 4;
@@ -150,11 +159,11 @@ contract TenMinus is owned {
         return interactingPlayers[msg.sender];
     }
     
-    function GetGameState (address opponent) constant returns (uint8 state, uint8 isPlayer)
+    function GetGameState (address opponent) constant returns (uint8 state, uint8 isPlayer, uint8 player1Card, uint8 player2Card)
     {
         if (gamesInitiated[msg.sender][opponent].state != 0)
-            return (gamesInitiated[msg.sender][opponent].state, 1);
-        return (gamesInitiated[opponent][msg.sender].state, 2);
+            return (gamesInitiated[msg.sender][opponent].state, 1, gamesInitiated[msg.sender][opponent].player1Card, gamesInitiated[msg.sender][opponent].player2Card);
+        return (gamesInitiated[opponent][msg.sender].state, 2, gamesInitiated[msg.sender][opponent].player1Card, gamesInitiated[msg.sender][opponent].player2Card);
     }
     
 }
