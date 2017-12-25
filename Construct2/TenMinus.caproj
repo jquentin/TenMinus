@@ -108,7 +108,7 @@
             </effects>
             <animation-folder>
                 <animation framecount="51" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="728689249166742" speed="0">
-                    <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.521127" hotspotY="0.494949" original-source="C:\Users\Jeremy\Documents\TenMinus\Construct2\Files\cards.png" />
                     <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
