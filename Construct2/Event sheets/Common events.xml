@@ -257,11 +257,40 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="11" name="Clear" sid="542589014686460" type="SelectOpponent" />
+                        <action id="-9" name="Set value" sid="480754775827726" type="System">
+                            <param id="0" name="Variable">selectedOpponentIndex</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
                     </actions>
                     <sub-events>
+                        <event-block sid="741975540011565">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="389499015614124" type="System">
+                                    <param id="0" name="First value">SelectOpponent.SelectedText</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Create New Game&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="868530420183904" type="System">
+                                    <param id="0" name="Variable">selectedOpponentIndex</param>
+                                    <param id="1" name="Value">tokencount(Ethereum.CurrentCallbackResponse, &quot;,&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="593312707332925">
+                            <conditions />
+                            <actions>
+                                <action id="11" name="Clear" sid="542589014686460" type="SelectOpponent" />
+                            </actions>
+                        </event-block>
                         <event-block sid="760111830365491">
                             <conditions>
+                                <condition id="-8" name="Compare two values" sid="305210835724005" type="System">
+                                    <param id="0" name="First value">tokencount(Ethereum.CurrentCallbackResponse, &quot;,&quot;)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
                                 <condition id="-10" name="For" sid="328216332433471" type="System">
                                     <param id="0" name="Name">&quot;ForAllOpponents&quot;</param>
                                     <param id="1" name="Start index">0</param>
@@ -299,10 +328,17 @@
                                 <action id="7" name="Add item" sid="734434362693774" type="SelectOpponent">
                                     <param id="0" name="Text">&quot;Create New Game&quot;</param>
                                 </action>
-                                <action id="0" name="Set selection" sid="221101240678396" type="SelectOpponent">
-                                    <param id="0" name="Index">selectedOpponentIndex</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="440587242975110">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Set selection" sid="221101240678396" type="SelectOpponent">
+                                            <param id="0" name="Index">selectedOpponentIndex</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>

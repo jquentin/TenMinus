@@ -17,6 +17,30 @@
                     <param id="1" name="Effect">&quot;Grayscale&quot;</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="467155152246237">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="376777512200345" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="922037446689714" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Value">selectedOpponentGameP2Card</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="582131692518006" type="Card">
+                            <param id="0" name="Frame number">24 + selectedOpponentGameP2Card</param>
+                        </action>
+                        <action id="14" name="Log" sid="314627621936226" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">selectedOpponentGameP2Card</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

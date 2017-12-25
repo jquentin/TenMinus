@@ -31,7 +31,7 @@
             <instances>
                 <instance type="RevealCard" uid="7">
                     <properties>
-                        <items>One;Two;Three;Four;Five;Six;Seven;Eight;Nine;Ten</items>
+                        <items>1;2;3;4;5;6;7;8;9;10</items>
                         <tooltip>Reveal your card</tooltip>
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>
@@ -105,7 +105,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -128,7 +128,7 @@
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
-                        <initial-frame>30</initial-frame>
+                        <initial-frame>25</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
@@ -150,7 +150,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>

@@ -55,7 +55,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -100,7 +100,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -145,7 +145,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -190,7 +190,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -235,7 +235,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -306,7 +306,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -351,7 +351,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -396,7 +396,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -441,7 +441,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -486,7 +486,7 @@
                     <effect-instances>
                         <effect-instance type="Grayscale">
                             <parameters>
-                                <intensity>1</intensity>
+                                <intensity>0.5</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>

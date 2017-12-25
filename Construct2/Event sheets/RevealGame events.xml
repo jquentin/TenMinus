@@ -12,7 +12,31 @@
                 <action id="0" name="Set text" sid="728974918255314" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Reveal your card&quot;</param>
                 </action>
+                <action id="-27" name="Set effect enabled" sid="135613417505436" type="Card">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Grayscale&quot;</param>
+                </action>
             </actions>
+            <sub-events>
+                <event-block sid="945351031135589">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="460116592693112" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="588932570723293" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Value">selectedOpponentGameP2Card</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="730568119516410" type="Card">
+                            <param id="0" name="Frame number">24 + selectedOpponentGameP2Card</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="242599994986192">
             <conditions>
@@ -39,26 +63,26 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="5" name="Set frame" sid="607564028758898" type="Card">
+                <action disabled="1" id="5" name="Set frame" sid="607564028758898" type="Card">
                     <param id="0" name="Frame number">0</param>
                 </action>
-                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="747234236711146" type="Card">
+                <action behavior="LiteTween" disabled="1" id="26" name="Create/Initialize tween" sid="747234236711146" type="Card">
                     <param id="0" name="Tweened property">8</param>
                     <param id="1" name="Function">3</param>
                     <param id="2" name="Target">str(Self.Y - 100)</param>
                     <param id="3" name="Duration">0.6</param>
                     <param id="4" name="Enforce mode">1</param>
                 </action>
-                <action behavior="LiteTween" id="10" name="Start" sid="670341712633102" type="Card">
+                <action behavior="LiteTween" disabled="1" id="10" name="Start" sid="670341712633102" type="Card">
                     <param id="0" name="Start Mode">0</param>
                     <param id="1" name="Force use current">0</param>
                 </action>
-                <action id="-16" name="Wait" sid="418996807397023" type="System">
+                <action disabled="1" id="-16" name="Wait" sid="418996807397023" type="System">
                     <param id="0" name="Seconds">0.7</param>
                 </action>
                 <action id="1" name="Send" sid="580316573633003" type="Ethereum">
                     <param id="0" name="Name with parameters types">&quot;Reveal&quot;</param>
-                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText{###}int(RevealCard.SelectedText)</param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText{###}int(RevealCard.SelectedText){###}ChoosePassword.Text</param>
                     <param id="2" name="Callback id">&quot;Reveal&quot;</param>
                     <param id="3" name="Value">0</param>
                 </action>

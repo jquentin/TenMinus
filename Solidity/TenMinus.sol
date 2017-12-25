@@ -161,9 +161,19 @@ contract TenMinus is owned {
     
     function GetGameState (address opponent) constant returns (uint8 state, uint8 isPlayer, uint8 player1Card, uint8 player2Card)
     {
+        Game game;
+        uint8 playerIndex;
         if (gamesInitiated[msg.sender][opponent].state != 0)
-            return (gamesInitiated[msg.sender][opponent].state, 1, gamesInitiated[msg.sender][opponent].player1Card, gamesInitiated[msg.sender][opponent].player2Card);
-        return (gamesInitiated[opponent][msg.sender].state, 2, gamesInitiated[msg.sender][opponent].player1Card, gamesInitiated[msg.sender][opponent].player2Card);
+        {
+            game = gamesInitiated[msg.sender][opponent];
+            playerIndex = 1;
+        }
+        else
+        {
+            game = gamesInitiated[opponent][msg.sender];
+            playerIndex = 2;
+        }
+        return (game.state, playerIndex, game.player1Card, game.player2Card);
     }
     
 }
