@@ -30,13 +30,11 @@ contract TenMinus is owned {
             _;
     }
 
-    // State { 0:Inexistant, 1:Initiated, 2:Answered (Waiting for reveal) }
-
-
     struct Game
     {
         address player1;
         address player2;
+        // State: { 0:Inexistant, 1:Initiated, 2:Answered (Waiting for reveal) }
         uint8 state;
         bytes32 player1CardHash;
         uint8 player1Card;
@@ -44,11 +42,6 @@ contract TenMinus is owned {
     }
     
     mapping (address => address[]) interactingPlayers;
-    
-    mapping (address => address[]) playersWaitingForReveal;
-    mapping (address => address[]) playersWaitingForAnswer;
-    mapping (address => address[]) playersWaitedForReveal;
-    mapping (address => address[]) playersWaitedForAnswer;
     
     mapping (address => mapping(address => Game)) gamesInitiated;
     
@@ -65,13 +58,10 @@ contract TenMinus is owned {
         newGame.player1CardHash = cardHash;
         gamesInitiated[newGame.player1][newGame.player2] = newGame;
         
-        // Add myself to playersWaitingForAnswer[opponent]
-        playersWaitingForAnswer[opponent].push(msg.sender);
-        
         interactingPlayers[opponent].push(msg.sender);
         interactingPlayers[msg.sender].push(opponent);
         
-       GameStateChanged(newGame.player1, newGame.player2, newGame.state);
+        GameStateChanged(newGame.player1, newGame.player2, newGame.state);
         
     }
     
@@ -83,22 +73,6 @@ contract TenMinus is owned {
         updatedGame.state = 2;
         updatedGame.player2Card = card;
         gamesInitiated[opponent][msg.sender] = updatedGame;
-        
-        // Remove myself from playersWaitingForAnswer[msg.sender]
-        uint length = playersWaitingForAnswer[msg.sender].length;
-        for (uint8 i = 0 ; i < length ; i++)
-        {
-            if (playersWaitingForAnswer[msg.sender][i] == opponent)
-            {
-                playersWaitingForAnswer[msg.sender][i] = playersWaitingForAnswer[msg.sender][length - 1];
-                delete playersWaitingForAnswer[msg.sender][length - 1];
-                break;
-            }
-        }
-        playersWaitingForAnswer[msg.sender].length--;
-        // Add myself to playersWaitingForReveal[opponent]
-        playersWaitingForReveal[opponent].push(msg.sender);
-        
         GameStateChanged(updatedGame.player1, updatedGame.player2, updatedGame.state);
     }
     
@@ -124,23 +98,9 @@ contract TenMinus is owned {
             msg.sender.transfer((uint256)(base + result));
             opponent.transfer((uint256)(base - result));
             
-            // Remove myself from playersWaitingForReveal[msg.sender]
-            uint length = playersWaitingForReveal[msg.sender].length;
-            for (uint8 i = 0 ; i < length ; i++)
-            {
-                if (playersWaitingForReveal[msg.sender][i] == opponent)
-                {
-                    playersWaitingForReveal[msg.sender][i] = playersWaitingForReveal[msg.sender][length - 1];
-                    delete playersWaitingForReveal[msg.sender][length - 1];
-                    break;
-                }
-            }
-            playersWaitingForReveal[msg.sender].length--;
-        
-            
             // Remove the opponent from interactingPlayers[msg.sender]
-            length = interactingPlayers[msg.sender].length;
-            for (i = 0 ; i < length ; i++)
+            uint length = interactingPlayers[msg.sender].length;
+            for (uint8 i = 0 ; i < length ; i++)
             {
                 if (interactingPlayers[msg.sender][i] == opponent)
                 {
@@ -183,16 +143,6 @@ contract TenMinus is owned {
             return signDif * absDif;
         else if (absDif > 5 && absDif < 10)
             return - signDif * ((int8)(10) - absDif);
-    }
-    
-    function GetPlayersWaitingForReveal () constant returns (address[])
-    {
-        return playersWaitingForReveal[msg.sender];
-    }
- 
-    function GetPlayersWaitingForAnswer () constant returns (address[])
-    {
-        return playersWaitingForAnswer[msg.sender];
     }
     
     function GetPlayersInteracting () constant returns (address[])
