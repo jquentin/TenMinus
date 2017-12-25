@@ -62,7 +62,7 @@
                 </action>
                 <action id="1" name="Send" sid="143132007873688" type="Ethereum">
                     <param id="0" name="Name with parameters types">&quot;InitiateGame&quot;</param>
-                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Ethereum.Sha3(Card.value, ChoosePassword.Text)</param>
+                    <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Ethereum.Sha3(ChoosePassword.Text, str(Card.value))</param>
                     <param id="2" name="Callback id">&quot;InitiateGame&quot;</param>
                     <param id="3" name="Value">int(Ethereum.ToWei(4, &quot;finney&quot;))</param>
                 </action>

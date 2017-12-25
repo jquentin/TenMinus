@@ -26,6 +26,5 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <active-layer name="Layer 0" />
     <layers>
         <layer locked="0" name="Layer 0" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="Layer 1" parallax-in-editor="0" visible="0" />
     </layers>
 </c2uistate>
