@@ -46,9 +46,7 @@ contract TenMinus is owned {
 
     struct Game
     {
-        address player1;
-        address player2;
-        // State: { 0:Inexistant, 1:Initiated, 2:Answered (Waiting for reveal) }
+        // State: { 0:Inexistant, 1:Initiated, 2:Answered (Waiting for reveal), 3:Complete }
         uint8 state;
         bytes32 player1CardHash;
         uint8 player1Card;
@@ -61,21 +59,25 @@ contract TenMinus is owned {
     
     function InitiateGame(address opponent, bytes32 cardHash) payable sentEnoughCashToPlay()
     {
-        if (gamesInitiated[msg.sender][opponent].state != 0)
+        if (msg.sender == opponent)
             throw;
-        if (gamesInitiated[opponent][msg.sender].state != 0)
+        if (gamesInitiated[msg.sender][opponent].state != 0 && gamesInitiated[msg.sender][opponent].state != 3)
             throw;
+        if (gamesInitiated[opponent][msg.sender].state != 0 && gamesInitiated[opponent][msg.sender].state != 3)
+            throw;
+            
+        gamesInitiated[msg.sender][opponent].state = 0;
+        gamesInitiated[opponent][msg.sender].state = 0;
+        
         Game newGame;
-        newGame.player1 = msg.sender;
-        newGame.player2 = opponent;
         newGame.state = 1;
         newGame.player1CardHash = cardHash;
-        gamesInitiated[newGame.player1][newGame.player2] = newGame;
+        gamesInitiated[msg.sender][opponent] = newGame;
         
         interactingPlayers[opponent].push(msg.sender);
         interactingPlayers[msg.sender].push(opponent);
         
-        GameStateChanged(newGame.player1, newGame.player2, newGame.state);
+        GameStateChanged(msg.sender, opponent, newGame.state);
         
     }
     
@@ -87,7 +89,7 @@ contract TenMinus is owned {
         updatedGame.state = 2;
         updatedGame.player2Card = card;
         gamesInitiated[opponent][msg.sender] = updatedGame;
-        GameStateChanged(updatedGame.player1, updatedGame.player2, updatedGame.state);
+        GameStateChanged(opponent, msg.sender, updatedGame.state);
     }
     
     function Reveal(address opponent, uint8 card, string password) valueIsCard(card)
@@ -101,11 +103,11 @@ contract TenMinus is owned {
         {
             updatedGame.state = 0;
             updatedGame.player1Card = card;
-            gamesInitiated[updatedGame.player1][updatedGame.player2] = updatedGame;
+            gamesInitiated[msg.sender][opponent] = updatedGame;
             int8 result = ResolveGame (updatedGame);
             int8 base = 4;
-            msg.sender.transfer((uint256)(base + result));
-            opponent.transfer((uint256)(base - result));
+            msg.sender.transfer((uint256)(base + result) * 1 finney);
+            opponent.transfer((uint256)(base - result) * 1 finney);
             
             // Remove the opponent from interactingPlayers[msg.sender]
             uint length = interactingPlayers[msg.sender].length;
@@ -133,7 +135,7 @@ contract TenMinus is owned {
             }
             interactingPlayers[opponent].length--;
             
-            GameStateChanged(updatedGame.player1, updatedGame.player2, updatedGame.state);
+            GameStateChanged(msg.sender, opponent, updatedGame.state);
         }
         else
             throw;
