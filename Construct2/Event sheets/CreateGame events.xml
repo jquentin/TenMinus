@@ -15,6 +15,10 @@
                 <action id="0" name="Set text" sid="584495095816457" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Create a new Game&quot;</param>
                 </action>
+                <action id="0" name="Call function" sid="130449605288426" type="Function">
+                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="698213329208806">
@@ -77,10 +81,11 @@
                 </action>
                 <action id="-9" name="Set value" sid="429926812950870" type="System">
                     <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">1</param>
+                    <param id="1" name="Value">TRUE</param>
                 </action>
-                <action id="5" name="Set frame" sid="113870188138866" type="Card">
-                    <param id="0" name="Frame number">0</param>
+                <action id="0" name="Call function" sid="113870188138866" type="Function">
+                    <param id="0" name="Name">&quot;FlipCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID{###}BACK</param>
                 </action>
                 <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="156569093845860" type="Card">
                     <param id="0" name="Tweened property">8</param>
@@ -123,6 +128,10 @@
                     <param id="0" name="Hash">transactionHash</param>
                     <param id="1" name="Callback id">&quot;InitiateGameReceipt&quot;</param>
                 </action>
+                <action id="0" name="Call function" sid="961633526858603" type="Function">
+                    <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Waiting for mining...&quot;</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="634923369481010">
@@ -153,24 +162,13 @@
                 <action id="-16" name="Wait" sid="611356511952750" type="System">
                     <param id="0" name="Seconds">0.6</param>
                 </action>
-                <action id="5" name="Set frame" sid="277994702620106" type="Card">
-                    <param id="0" name="Frame number">24 + Card.value</param>
+                <action id="0" name="Call function" sid="277994702620106" type="Function">
+                    <param id="0" name="Name">&quot;FlipCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID{###}FRONT</param>
                 </action>
                 <action id="-9" name="Set value" sid="472509065107343" type="System">
                     <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="307126725166127">
-            <conditions>
-                <condition id="0" name="On function" sid="532812428254577" type="Function">
-                    <param id="0" name="Name">&quot;InitCard&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="5" name="Set frame" sid="614418279593411" type="Card">
-                    <param id="0" name="Frame number">24 + Card.value</param>
+                    <param id="1" name="Value">FALSE</param>
                 </action>
             </actions>
         </event-block>
@@ -191,10 +189,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="769844396697518" type="Function">
-                            <param id="0" name="Name">&quot;Log&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;Empty response&quot;</param>
-                        </action>
                         <action id="3" name="Get Transaction Receipt" sid="783885099682567" type="Ethereum">
                             <param id="0" name="Hash">transactionHash</param>
                             <param id="1" name="Callback id">&quot;InitiateGameReceipt&quot;</param>
@@ -209,6 +203,107 @@
                         <action id="0" name="Call function" sid="971224337428462" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
                             <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                        </action>
+                        <action id="0" name="Call function" sid="701223509589866" type="Function">
+                            <param id="0" name="Name">&quot;SelectCreatedGame&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="840882782374192">
+            <conditions>
+                <condition id="0" name="On function" sid="277804207396459" type="Function">
+                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="311852709676424" type="WaitingWheel">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="862417864107593" type="WaitingText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="592163810207454">
+            <conditions>
+                <condition id="0" name="On function" sid="604121479387010" type="Function">
+                    <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="515327175687942" type="WaitingWheel">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="870948213201955" type="WaitingText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="728303543778821" type="WaitingText">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="832837084655328">
+            <conditions>
+                <condition id="0" name="On function" sid="412262294966103" type="Function">
+                    <param id="0" name="Name">&quot;SelectCreatedGame&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="807662175598914" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Select Created Game&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="foundGame" sid="874079854341588" static="0" type="number">0</variable>
+                <event-block sid="169391667010469">
+                    <conditions>
+                        <condition id="-10" name="For" sid="793157910060035" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">SelectOpponent.ItemCount - 1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="764321976328727">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="113484670952676" type="System">
+                                    <param id="0" name="First value">SelectOpponent.ItemTextAt(loopindex)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">ChooseOpponent.Text</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set selection" sid="709533769467283" type="SelectOpponent">
+                                    <param id="0" name="Index">loopindex</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="574214035010742" type="System">
+                                    <param id="0" name="Variable">foundGame</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="829371273222190">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="464155951888050" type="System">
+                            <param id="0" name="Variable">foundGame</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="268571724832515" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="980766035729421" type="Function">
+                            <param id="0" name="Name">&quot;SelectCreatedGame&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Card events</name>
+    <events>
+        <variable constant="1" name="BACK" sid="102078976013964" static="0" type="number">0</variable>
+        <variable constant="1" name="FRONT" sid="392997005744475" static="0" type="number">1</variable>
+        <event-block sid="468830450881356">
+            <conditions>
+                <condition id="0" name="On function" sid="923892550213117" type="Function">
+                    <param id="0" name="Name">&quot;FlipCard&quot;</param>
+                </condition>
+                <condition id="-14" name="Pick by unique ID" sid="168910590337808" type="Card">
+                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="955334988124987" type="Card">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block any="1" sid="465139114316828">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="611338518493550" type="System">
+                            <param id="0" name="First value">Function.Param(1)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">BACK</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="481892576060243" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="694855435850656" type="Card">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="973584277331545" type="Card">
+                            <param id="0" name="Instance variable">SideUp</param>
+                            <param id="1" name="Value">BACK</param>
+                        </action>
+                        <action id="14" name="Log" sid="145096060387889" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">Card.UID</param>
+                        </action>
+                        <action id="14" name="Log" sid="342487223878358" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;Back&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="823072195260310">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="473794717521542" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="798375818713252" type="Card">
+                            <param id="0" name="Frame number">24 + Card.value</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="483835504310171" type="Card">
+                            <param id="0" name="Instance variable">SideUp</param>
+                            <param id="1" name="Value">FRONT</param>
+                        </action>
+                        <action id="14" name="Log" sid="624756114848398" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;Front&quot;</param>
+                        </action>
+                        <action id="14" name="Log" sid="798510013757983" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="494941411621053">
+            <conditions>
+                <condition id="-18" name="On created" sid="406258891850351" type="Card" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="579740132231079" type="Function">
+                    <param id="0" name="Name">&quot;FlipCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID{###}Card.SideUp</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

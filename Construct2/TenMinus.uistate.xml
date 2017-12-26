@@ -23,6 +23,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="8">Common events</event-sheet>
         <event-sheet order="10">WaitingForAnswer events</event-sheet>
         <event-sheet order="11">WaitingForReveal events</event-sheet>
+        <event-sheet order="13">Card events</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -41,5 +42,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/Card/" />
         <folder expanded="1" path="animation-folder/table/" />
+        <folder expanded="1" path="animation-folder/WaitingWheel/" />
     </folders-expanded>
 </c2uistate>
