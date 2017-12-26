@@ -538,6 +538,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <isMine>1</isMine>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
@@ -573,6 +576,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <isMine>1</isMine>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
@@ -608,6 +614,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <isMine>1</isMine>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
@@ -643,6 +652,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <isMine>1</isMine>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>

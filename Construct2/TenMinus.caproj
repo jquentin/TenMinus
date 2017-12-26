@@ -218,6 +218,9 @@
         </object-type>
         <object-type name="Coin" sid="995168895605747">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isMine" sid="803764411459733" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="LiteTween" sid="250444224757364">
                     <behavior id="lunarray_LiteTween" />
