@@ -23,12 +23,9 @@
                     <param id="0" name="Variable">isWaitingForTransaction</param>
                     <param id="1" name="Value">FALSE</param>
                 </action>
-                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="241029202674212" type="Coin">
-                    <param id="0" name="Tweened property">1</param>
-                    <param id="1" name="Function">0</param>
-                    <param id="2" name="Target">&quot;0,0&quot;</param>
-                    <param id="3" name="Duration">0</param>
-                    <param id="4" name="Enforce mode">0</param>
+                <action id="0" name="Call function" sid="800755780338292" type="Function">
+                    <param id="0" name="Name">&quot;HideMyCoins&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>
@@ -228,39 +225,6 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="840882782374192">
-            <conditions>
-                <condition id="0" name="On function" sid="277804207396459" type="Function">
-                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-15" name="Set visible" sid="311852709676424" type="WaitingWheel">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-15" name="Set visible" sid="862417864107593" type="WaitingText">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="592163810207454">
-            <conditions>
-                <condition id="0" name="On function" sid="604121479387010" type="Function">
-                    <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-15" name="Set visible" sid="515327175687942" type="WaitingWheel">
-                    <param id="0" name="Visibility">1</param>
-                </action>
-                <action id="-15" name="Set visible" sid="870948213201955" type="WaitingText">
-                    <param id="0" name="Visibility">1</param>
-                </action>
-                <action id="0" name="Set text" sid="728303543778821" type="WaitingText">
-                    <param id="0" name="Text">Function.Param(0)</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="832837084655328">
             <conditions>
                 <condition id="0" name="On function" sid="412262294966103" type="Function">
@@ -332,80 +296,6 @@
                         <action id="0" name="Call function" sid="980766035729421" type="Function">
                             <param id="0" name="Name">&quot;SelectCreatedGame&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <event-block sid="183919871359936">
-            <conditions>
-                <condition id="0" name="On function" sid="197688297899458" type="Function">
-                    <param id="0" name="Name">&quot;DisableInteractions&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="665332204682623" type="System">
-                    <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">TRUE</param>
-                </action>
-                <action id="4" name="Set enabled" sid="535285134882846" type="ChooseOpponent">
-                    <param id="0" name="Mode">0</param>
-                </action>
-                <action id="4" name="Set enabled" sid="493884215311278" type="ChoosePassword">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="429344320336226">
-            <conditions>
-                <condition id="0" name="On function" sid="494311848343421" type="Function">
-                    <param id="0" name="Name">&quot;EnableInteractions&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="466800252713850" type="System">
-                    <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">FALSE</param>
-                </action>
-                <action id="4" name="Set enabled" sid="736990045173242" type="ChooseOpponent">
-                    <param id="0" name="Mode">1</param>
-                </action>
-                <action id="4" name="Set enabled" sid="283080339185836" type="ChoosePassword">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="603432773837938">
-            <conditions>
-                <condition id="0" name="On function" sid="134381778777355" type="Function">
-                    <param id="0" name="Name">&quot;ThrowCoins&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="324237065185115" type="Coin">
-                    <param id="0" name="Tweened property">1</param>
-                    <param id="1" name="Function">23</param>
-                    <param id="2" name="Target">&quot;20,20&quot;</param>
-                    <param id="3" name="Duration">1</param>
-                    <param id="4" name="Enforce mode">0</param>
-                </action>
-                <action behavior="LiteTween" id="10" name="Start" sid="798400510507947" type="Coin">
-                    <param id="0" name="Start Mode">0</param>
-                    <param id="1" name="Force use current">0</param>
-                </action>
-            </actions>
-            <sub-events>
-                <event-block sid="597876306441274">
-                    <conditions>
-                        <condition id="-24" name="For Each (ordered)" sid="123377098318645" type="System">
-                            <param id="0" name="Object">Coin</param>
-                            <param id="1" name="Expression">Coin.X</param>
-                            <param id="2" name="Order">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-16" name="Wait" sid="258931685372032" type="System">
-                            <param id="0" name="Seconds">1</param>
                         </action>
                     </actions>
                 </event-block>

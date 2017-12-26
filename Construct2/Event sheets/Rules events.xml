@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Rules events</name>
+    <events>
+        <event-block sid="600799166615191">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="792398493907679" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="501639091988354" type="Rules">
+                    <param id="0" name="Text">&quot;Rules:&#x0D;&#x0A;&#x0D;&#x0A;  - Player 1 draws a card back face hidden&#x0D;&#x0A;&#x0D;&#x0A;  - Player 2 draws a card face shown&#x0D;&#x0A;&#x0D;&#x0A;  - Player 1 reveals card&#x0D;&#x0A;&#x0D;&#x0A;  - If the difference is more than 5, the player with the lowest score gets a +10 bonus&#x0D;&#x0A;&#x0D;&#x0A;  - The player with the biggest score wins the difference in finneys&#x0D;&#x0A;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="528772989106263">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="426588137174479" type="BackButton" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="996590924398123" type="System">
+                    <param id="0" name="Layout">Login</param>
+                </action>
+                <action id="2" name="Set visible" sid="763410027020465" type="SelectOpponent">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

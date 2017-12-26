@@ -88,6 +88,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <variable constant="0" name="nextScene" sid="748576703129815" static="0" type="text"></variable>
                         <event-block sid="660565775714144">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="836704889449012" type="System">
@@ -102,12 +103,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="534692223395833" type="Function">
-                                    <param id="0" name="Name">&quot;Log&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;Waiting for Opponent to Answer Game&quot;</param>
-                                </action>
-                                <action id="-2" name="Go to layout" sid="893461405183862" type="System">
-                                    <param id="0" name="Layout">WaitingForAnswer</param>
+                                <action id="-9" name="Set value" sid="516814600217495" type="System">
+                                    <param id="0" name="Variable">nextScene</param>
+                                    <param id="1" name="Value">&quot;WaitingForAnswer&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -125,12 +123,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="873509188416861" type="Function">
-                                    <param id="0" name="Name">&quot;Log&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
-                                </action>
-                                <action id="-2" name="Go to layout" sid="947300518522353" type="System">
-                                    <param id="0" name="Layout">RevealGame</param>
+                                <action id="-9" name="Set value" sid="875310584608772" type="System">
+                                    <param id="0" name="Variable">nextScene</param>
+                                    <param id="1" name="Value">&quot;RevealGame&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -148,12 +143,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="414933643688579" type="Function">
-                                    <param id="0" name="Name">&quot;Log&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;Answer Game&quot;</param>
-                                </action>
-                                <action id="-2" name="Go to layout" sid="475303374355764" type="System">
-                                    <param id="0" name="Layout">AnswerGame</param>
+                                <action id="-9" name="Set value" sid="802978987104244" type="System">
+                                    <param id="0" name="Variable">nextScene</param>
+                                    <param id="1" name="Value">&quot;AnswerGame&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -171,12 +163,27 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="522635265197636" type="Function">
-                                    <param id="0" name="Name">&quot;Log&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
+                                <action id="-9" name="Set value" sid="786770706258661" type="System">
+                                    <param id="0" name="Variable">nextScene</param>
+                                    <param id="1" name="Value">&quot;WaitingForReveal&quot;</param>
                                 </action>
-                                <action id="-2" name="Go to layout" sid="253664768906933" type="System">
-                                    <param id="0" name="Layout">WaitingForReveal</param>
+                            </actions>
+                        </event-block>
+                        <event-block sid="916201838610336">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="166105104643497" type="System">
+                                    <param id="0" name="First value">nextScene</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">LayoutName</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="386225261357197" type="Function">
+                                    <param id="0" name="Name">&quot;Log&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;GoTo &quot; &amp; nextScene</param>
+                                </action>
+                                <action id="-25" name="Go to layout (by name)" sid="872012806800722" type="System">
+                                    <param id="0" name="Layout">nextScene</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -323,5 +330,133 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="520648326222076">
+            <conditions>
+                <condition id="0" name="On function" sid="355502283667214" type="Function">
+                    <param id="0" name="Name">&quot;ThrowCoins&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="159595781608421" type="Coin">
+                    <param id="0" name="Instance variable">isMine</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">TRUE</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="513207674684386" type="Coin">
+                    <param id="0" name="Tweened property">1</param>
+                    <param id="1" name="Function">23</param>
+                    <param id="2" name="Target">&quot;20,20&quot;</param>
+                    <param id="3" name="Duration">1</param>
+                    <param id="4" name="Enforce mode">0</param>
+                </action>
+                <action behavior="LiteTween" id="10" name="Start" sid="865570927299579" type="Coin">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="475804939524014">
+            <conditions>
+                <condition id="0" name="On function" sid="286345384753037" type="Function">
+                    <param id="0" name="Name">&quot;HideMyCoins&quot;</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="264223656911995" type="Coin">
+                    <param id="0" name="Instance variable">isMine</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">TRUE</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="182771862930389" type="Coin">
+                    <param id="0" name="Width">0</param>
+                    <param id="1" name="Height">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="364117891774026">
+            <conditions>
+                <condition id="0" name="On function" sid="422283720756549" type="Function">
+                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="421308754146936" type="WaitingWheel">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="324154703742904" type="WaitingText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="976270282577836">
+            <conditions>
+                <condition id="0" name="On function" sid="838044641674033" type="Function">
+                    <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="231760681517322" type="WaitingWheel">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="986924556748796" type="WaitingText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="388633218372192" type="WaitingText">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="315784842461708">
+            <conditions>
+                <condition id="0" name="On function" sid="534922545629899" type="Function">
+                    <param id="0" name="Name">&quot;DisableInteractions&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="179580567100607" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">TRUE</param>
+                </action>
+                <action id="4" name="Set enabled" sid="875542481060121" type="ChooseOpponent">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set enabled" sid="479921391938385" type="ChoosePassword">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="100577567578860">
+            <conditions>
+                <condition id="0" name="On function" sid="907420901239835" type="Function">
+                    <param id="0" name="Name">&quot;EnableInteractions&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="480085771873705" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">FALSE</param>
+                </action>
+                <action id="4" name="Set enabled" sid="737617446304934" type="ChooseOpponent">
+                    <param id="0" name="Mode">1</param>
+                </action>
+                <action id="4" name="Set enabled" sid="412327184356338" type="ChoosePassword">
+                    <param id="0" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="842219368564924">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="467096420627319" type="RulesButton" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="651377777255479" type="System">
+                    <param id="0" name="Layout">Rules</param>
+                </action>
+                <action id="2" name="Set visible" sid="440113690499765" type="SelectOpponent">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="176728155897269" type="System" />
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

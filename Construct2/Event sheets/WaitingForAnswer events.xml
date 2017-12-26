@@ -12,6 +12,37 @@
                 <action id="0" name="Set text" sid="381996947872995" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Waiting for the opponent to answer&quot;</param>
                 </action>
+                <action id="0" name="Call" sid="249342123305827" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                    <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="243651427227634">
+            <conditions>
+                <condition id="1" name="On function success" sid="219896717707609" type="Ethereum">
+                    <param id="0" name="ID">&quot;GetGameState&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="657619194339608" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="307712061089881" type="Function">
+                    <param id="0" name="Name">&quot;AnalyseGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="123131492717681" type="Function">
+                    <param id="0" name="Name">&quot;GoToGameScene&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="0" name="Call" sid="570300098593397" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                    <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                </action>
             </actions>
         </event-block>
     </events>

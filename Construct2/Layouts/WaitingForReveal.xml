@@ -78,8 +78,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>419.499786377</x>
-                        <y>165.249755859</y>
+                        <x>423.999511719</x>
+                        <y>150.249481201</y>
                         <z>0</z>
                         <width>38.904109955</width>
                         <height>60.612243652</height>
@@ -117,8 +117,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>419.499786377</x>
-                        <y>249.749816895</y>
+                        <x>424.999176025</x>
+                        <y>263.749633789</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -137,12 +137,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -155,8 +155,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>386.750457764</x>
-                        <y>121.999595642</y>
+                        <x>385.750762939</x>
+                        <y>195.499862671</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -175,12 +175,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -193,8 +193,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>411.750274658</x>
-                        <y>121.999595642</y>
+                        <x>410.750579834</x>
+                        <y>195.499862671</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -213,12 +213,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -231,8 +231,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>436.750457764</x>
-                        <y>121.999595642</y>
+                        <x>435.750762939</x>
+                        <y>195.499862671</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -251,12 +251,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -269,8 +269,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>461.750457764</x>
-                        <y>121.999595642</y>
+                        <x>460.750762939</x>
+                        <y>195.499862671</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -289,12 +289,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -307,8 +307,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>383.251159668</x>
-                        <y>291.999816895</y>
+                        <x>385.251312256</x>
+                        <y>218.499908447</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -327,12 +327,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -345,8 +345,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>408.250976563</x>
-                        <y>291.999816895</y>
+                        <x>410.25112915</x>
+                        <y>218.499908447</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -365,12 +365,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -383,8 +383,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>433.251159668</x>
-                        <y>291.999816895</y>
+                        <x>435.251312256</x>
+                        <y>218.499908447</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -403,12 +403,12 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <isMine>1</isMine>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -421,8 +421,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>458.251159668</x>
-                        <y>291.999816895</y>
+                        <x>460.251312256</x>
+                        <y>218.499908447</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>

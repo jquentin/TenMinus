@@ -41,14 +41,6 @@
                             <param id="0" name="Instance variable">SideUp</param>
                             <param id="1" name="Value">BACK</param>
                         </action>
-                        <action id="14" name="Log" sid="145096060387889" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">Card.UID</param>
-                        </action>
-                        <action id="14" name="Log" sid="342487223878358" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">&quot;Back&quot;</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="823072195260310">
@@ -62,14 +54,6 @@
                         <action id="-10" name="Set value" sid="483835504310171" type="Card">
                             <param id="0" name="Instance variable">SideUp</param>
                             <param id="1" name="Value">FRONT</param>
-                        </action>
-                        <action id="14" name="Log" sid="624756114848398" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">&quot;Front&quot;</param>
-                        </action>
-                        <action id="14" name="Log" sid="798510013757983" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">Function.Param(0)</param>
                         </action>
                     </actions>
                 </event-block>

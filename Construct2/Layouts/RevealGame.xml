@@ -192,7 +192,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -230,7 +230,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -268,7 +268,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -306,7 +306,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -344,7 +344,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -382,7 +382,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -420,7 +420,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -458,7 +458,7 @@
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <tweened-property>Position</tweened-property>
                                 <function>EaseOutBounce</function>
                                 <target>100,100</target>
@@ -479,6 +479,63 @@
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.479704797</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="WaitingWheel" uid="81">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>180</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>343.21786499</x>
+                        <y>251.468841553</y>
+                        <z>0</z>
+                        <width>40.874786377</width>
+                        <height>40.874786377</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="WaitingText" uid="82">
+                    <properties>
+                        <text>Waiting for mining</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-16</font>
+                        <color>255,255,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>369.281799316</x>
+                        <y>231.531478882</y>
+                        <z>0</z>
+                        <width>200</width>
+                        <height>41</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

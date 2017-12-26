@@ -12,27 +12,11 @@
                 <action id="0" name="Set text" sid="580820461052588" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Answer a game started by opponent&quot;</param>
                 </action>
+                <action id="0" name="Call function" sid="287110913254462" type="Function">
+                    <param id="0" name="Name">&quot;HideMyCoins&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
             </actions>
-            <sub-events>
-                <event-block sid="657969099162741">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="410415429930920" type="Coin">
-                            <param id="0" name="Instance variable">isMine</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">TRUE</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="143007665074463" type="Coin">
-                            <param id="0" name="Tweened property">1</param>
-                            <param id="1" name="Function">0</param>
-                            <param id="2" name="Target">&quot;0,0&quot;</param>
-                            <param id="3" name="Duration">0</param>
-                            <param id="4" name="Enforce mode">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
         </event-block>
         <event-block sid="595393635126858">
             <conditions>
@@ -138,7 +122,7 @@
                     <actions>
                         <action id="3" name="Get Transaction Receipt" sid="283177929137570" type="Ethereum">
                             <param id="0" name="Hash">transactionHash</param>
-                            <param id="1" name="Callback id">&quot;InitiateGameReceipt&quot;</param>
+                            <param id="1" name="Callback id">&quot;AnswerGameReceipt&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -151,49 +135,35 @@
                             <param id="0" name="Name">&quot;Log&quot;</param>
                             <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                         </action>
-                        <action id="0" name="Call function" sid="749478328139551" type="Function">
-                            <param id="0" name="Name">&quot;UpdateUI&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                        <action id="0" name="Call" sid="749924603559774" type="Ethereum">
+                            <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                            <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                            <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="488778634682116">
+        <event-block sid="657651030305606">
             <conditions>
-                <condition id="0" name="On function" sid="497229605485575" type="Function">
-                    <param id="0" name="Name">&quot;ThrowCoins&quot;</param>
+                <condition id="1" name="On function success" sid="925796485597201" type="Ethereum">
+                    <param id="0" name="ID">&quot;GetGameState&quot;</param>
                 </condition>
             </conditions>
             <actions>
-                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="189848392464801" type="Coin">
-                    <param id="0" name="Tweened property">1</param>
-                    <param id="1" name="Function">23</param>
-                    <param id="2" name="Target">&quot;20,20&quot;</param>
-                    <param id="3" name="Duration">1</param>
-                    <param id="4" name="Enforce mode">0</param>
+                <action id="0" name="Call function" sid="255461143852276" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
                 </action>
-                <action behavior="LiteTween" id="10" name="Start" sid="714722263379501" type="Coin">
-                    <param id="0" name="Start Mode">0</param>
-                    <param id="1" name="Force use current">0</param>
+                <action id="0" name="Call function" sid="309617859375432" type="Function">
+                    <param id="0" name="Name">&quot;AnalyseGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="637199777682432" type="Function">
+                    <param id="0" name="Name">&quot;GoToGameScene&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
-            <sub-events>
-                <event-block sid="828171534045227">
-                    <conditions>
-                        <condition id="-24" name="For Each (ordered)" sid="185556545918267" type="System">
-                            <param id="0" name="Object">Coin</param>
-                            <param id="1" name="Expression">Coin.X</param>
-                            <param id="2" name="Order">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-16" name="Wait" sid="306945915711269" type="System">
-                            <param id="0" name="Seconds">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

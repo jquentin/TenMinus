@@ -23,6 +23,7 @@
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="lunarray" id="lunarray_LiteTween" version="1.700000048">LiteTween</behavior>
@@ -232,6 +233,25 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Rules" sid="257361625284860">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="BackButton" sid="497152636363272">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="DragDrop" sid="722042108275785">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type global="1" name="RulesButton" sid="520697825232197">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="DragDrop" sid="194296707030038">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -242,6 +262,7 @@
         <layout>WaitingForAnswer.xml</layout>
         <layout>WaitingForReveal.xml</layout>
         <layout>Loading.xml</layout>
+        <layout>Rules.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Login events.xml</event-sheet>
@@ -253,6 +274,7 @@
         <event-sheet>WaitingForReveal events.xml</event-sheet>
         <event-sheet>Card events.xml</event-sheet>
         <event-sheet>Loading events.xml</event-sheet>
+        <event-sheet>Rules events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
