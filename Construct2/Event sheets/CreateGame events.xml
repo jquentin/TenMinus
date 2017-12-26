@@ -19,6 +19,10 @@
                     <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="-9" name="Set value" sid="933414888596695" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">FALSE</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="698213329208806">
@@ -79,9 +83,9 @@
                     <param id="0" name="Variable">selectedCardUID</param>
                     <param id="1" name="Value">Card.UID</param>
                 </action>
-                <action id="-9" name="Set value" sid="429926812950870" type="System">
-                    <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">TRUE</param>
+                <action id="0" name="Call function" sid="429926812950870" type="Function">
+                    <param id="0" name="Name">&quot;DisableInteractions&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
                 <action id="0" name="Call function" sid="113870188138866" type="Function">
                     <param id="0" name="Name">&quot;FlipCard&quot;</param>
@@ -166,9 +170,9 @@
                     <param id="0" name="Name">&quot;FlipCard&quot;</param>
                     <param id="1" name="Parameter {n}">Card.UID{###}FRONT</param>
                 </action>
-                <action id="-9" name="Set value" sid="472509065107343" type="System">
-                    <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">FALSE</param>
+                <action id="0" name="Call function" sid="809241770428682" type="Function">
+                    <param id="0" name="Name">&quot;EnableInteractions&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>
@@ -285,6 +289,18 @@
                                     <param id="0" name="Variable">foundGame</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="406756476640773" type="System">
+                                    <param id="0" name="Variable">selectedOpponentIndex</param>
+                                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="220281292704576" type="System">
+                                    <param id="0" name="Variable">selectedOpponent</param>
+                                    <param id="1" name="Value">SelectOpponent.SelectedText</param>
+                                </action>
+                                <action id="0" name="Call function" sid="172992183449296" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateUI&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -308,6 +324,44 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="183919871359936">
+            <conditions>
+                <condition id="0" name="On function" sid="197688297899458" type="Function">
+                    <param id="0" name="Name">&quot;DisableInteractions&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="665332204682623" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">TRUE</param>
+                </action>
+                <action id="4" name="Set enabled" sid="535285134882846" type="ChooseOpponent">
+                    <param id="0" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set enabled" sid="493884215311278" type="ChoosePassword">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="429344320336226">
+            <conditions>
+                <condition id="0" name="On function" sid="494311848343421" type="Function">
+                    <param id="0" name="Name">&quot;EnableInteractions&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="466800252713850" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">FALSE</param>
+                </action>
+                <action id="4" name="Set enabled" sid="736990045173242" type="ChooseOpponent">
+                    <param id="0" name="Mode">1</param>
+                </action>
+                <action id="4" name="Set enabled" sid="283080339185836" type="ChoosePassword">
+                    <param id="0" name="Mode">1</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
