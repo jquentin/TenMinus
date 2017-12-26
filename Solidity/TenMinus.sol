@@ -101,7 +101,7 @@ contract TenMinus is owned {
         Game updatedGame = gamesInitiated[msg.sender][opponent];
         if (sha3 (password, CardToString(card)) == updatedGame.player1CardHash)
         {
-            updatedGame.state = 0;
+            updatedGame.state = 3;
             updatedGame.player1Card = card;
             gamesInitiated[msg.sender][opponent] = updatedGame;
             int8 result = ResolveGame (updatedGame);
