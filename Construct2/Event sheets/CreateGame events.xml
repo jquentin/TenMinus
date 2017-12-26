@@ -4,7 +4,9 @@
     <name>CreateGame events</name>
     <events>
         <include>Common events</include>
+        <variable constant="0" name="selectedCardUID" sid="798890554501191" static="0" type="number">0</variable>
         <variable constant="0" name="isWaitingForTransaction" sid="853272457005922" static="0" type="number">0</variable>
+        <variable constant="0" name="transactionHash" sid="597534281254279" static="0" type="text"></variable>
         <event-block sid="324769876362184">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="672110316046089" type="System" />
@@ -33,7 +35,7 @@
                 <event-block sid="996776509901101">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="778264018319286" type="System">
-                            <param id="0" name="First value">Ethereum.IsAddress(ChoosePassword.Text)</param>
+                            <param id="0" name="First value">Ethereum.IsAddress(ChooseOpponent.Text)</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">TRUE</param>
                         </condition>
@@ -69,6 +71,10 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="-9" name="Set value" sid="262805045284638" type="System">
+                    <param id="0" name="Variable">selectedCardUID</param>
+                    <param id="1" name="Value">Card.UID</param>
+                </action>
                 <action id="-9" name="Set value" sid="429926812950870" type="System">
                     <param id="0" name="Variable">isWaitingForTransaction</param>
                     <param id="1" name="Value">1</param>
@@ -100,7 +106,7 @@
         </event-block>
         <event-block sid="953668786658219">
             <conditions>
-                <condition id="3" name="On function callback" sid="827688255001418" type="Ethereum">
+                <condition id="1" name="On function success" sid="827688255001418" type="Ethereum">
                     <param id="0" name="ID">&quot;InitiateGame&quot;</param>
                 </condition>
             </conditions>
@@ -109,7 +115,104 @@
                     <param id="0" name="Name">&quot;Log&quot;</param>
                     <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                 </action>
+                <action id="-9" name="Set value" sid="694114381601439" type="System">
+                    <param id="0" name="Variable">transactionHash</param>
+                    <param id="1" name="Value">Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="3" name="Get Transaction Receipt" sid="793140027706781" type="Ethereum">
+                    <param id="0" name="Hash">transactionHash</param>
+                    <param id="1" name="Callback id">&quot;InitiateGameReceipt&quot;</param>
+                </action>
             </actions>
+        </event-block>
+        <event-block sid="634923369481010">
+            <conditions>
+                <condition id="2" name="On function error" sid="825376062625947" type="Ethereum">
+                    <param id="0" name="ID">&quot;InitiateGame&quot;</param>
+                </condition>
+                <condition id="-14" name="Pick by unique ID" sid="747731373021093" type="Card">
+                    <param id="0" name="Unique ID">selectedCardUID</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="349988046956104" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackError</param>
+                </action>
+                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="198804852254947" type="Card">
+                    <param id="0" name="Tweened property">8</param>
+                    <param id="1" name="Function">3</param>
+                    <param id="2" name="Target">str(Self.Y + 100)</param>
+                    <param id="3" name="Duration">0.6</param>
+                    <param id="4" name="Enforce mode">1</param>
+                </action>
+                <action behavior="LiteTween" id="10" name="Start" sid="967052848396214" type="Card">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="611356511952750" type="System">
+                    <param id="0" name="Seconds">0.6</param>
+                </action>
+                <action id="5" name="Set frame" sid="277994702620106" type="Card">
+                    <param id="0" name="Frame number">24 + Card.value</param>
+                </action>
+                <action id="-9" name="Set value" sid="472509065107343" type="System">
+                    <param id="0" name="Variable">isWaitingForTransaction</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="307126725166127">
+            <conditions>
+                <condition id="0" name="On function" sid="532812428254577" type="Function">
+                    <param id="0" name="Name">&quot;InitCard&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="614418279593411" type="Card">
+                    <param id="0" name="Frame number">24 + Card.value</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="909804708305498">
+            <conditions>
+                <condition id="3" name="On function callback" sid="629928026530607" type="Ethereum">
+                    <param id="0" name="ID">&quot;InitiateGameReceipt&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block bookmark="1" sid="579127685526829">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="225544664647069" type="System">
+                            <param id="0" name="First value">Ethereum.CurrentCallbackResponse</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="769844396697518" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Empty response&quot;</param>
+                        </action>
+                        <action id="3" name="Get Transaction Receipt" sid="783885099682567" type="Ethereum">
+                            <param id="0" name="Hash">transactionHash</param>
+                            <param id="1" name="Callback id">&quot;InitiateGameReceipt&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="221468219511819">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="922318145504174" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="971224337428462" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
