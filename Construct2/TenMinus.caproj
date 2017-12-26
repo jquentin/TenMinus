@@ -216,6 +216,19 @@
         <object-type name="WaitingText" sid="783706659728234">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Coin" sid="995168895605747">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="LiteTween" sid="250444224757364">
+                    <behavior id="lunarray_LiteTween" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="471283117926965" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.479705" original-source="C:\Users\Jeremy\Downloads\ethereum-coin-illustration-digital-crypto-currency-95587609.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
