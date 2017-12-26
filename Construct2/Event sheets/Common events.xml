@@ -330,120 +330,132 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="520648326222076">
-            <conditions>
-                <condition id="0" name="On function" sid="355502283667214" type="Function">
-                    <param id="0" name="Name">&quot;ThrowCoins&quot;</param>
-                </condition>
-                <condition id="-7" name="Compare instance variable" sid="159595781608421" type="Coin">
-                    <param id="0" name="Instance variable">isMine</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">TRUE</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="513207674684386" type="Coin">
-                    <param id="0" name="Tweened property">1</param>
-                    <param id="1" name="Function">23</param>
-                    <param id="2" name="Target">&quot;20,20&quot;</param>
-                    <param id="3" name="Duration">1</param>
-                    <param id="4" name="Enforce mode">0</param>
-                </action>
-                <action behavior="LiteTween" id="10" name="Start" sid="865570927299579" type="Coin">
-                    <param id="0" name="Start Mode">0</param>
-                    <param id="1" name="Force use current">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="475804939524014">
-            <conditions>
-                <condition id="0" name="On function" sid="286345384753037" type="Function">
-                    <param id="0" name="Name">&quot;HideMyCoins&quot;</param>
-                </condition>
-                <condition id="-7" name="Compare instance variable" sid="264223656911995" type="Coin">
-                    <param id="0" name="Instance variable">isMine</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">TRUE</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-7" name="Set size" sid="182771862930389" type="Coin">
-                    <param id="0" name="Width">0</param>
-                    <param id="1" name="Height">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="364117891774026">
-            <conditions>
-                <condition id="0" name="On function" sid="422283720756549" type="Function">
-                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-15" name="Set visible" sid="421308754146936" type="WaitingWheel">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-15" name="Set visible" sid="324154703742904" type="WaitingText">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="976270282577836">
-            <conditions>
-                <condition id="0" name="On function" sid="838044641674033" type="Function">
-                    <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-15" name="Set visible" sid="231760681517322" type="WaitingWheel">
-                    <param id="0" name="Visibility">1</param>
-                </action>
-                <action id="-15" name="Set visible" sid="986924556748796" type="WaitingText">
-                    <param id="0" name="Visibility">1</param>
-                </action>
-                <action id="0" name="Set text" sid="388633218372192" type="WaitingText">
-                    <param id="0" name="Text">Function.Param(0)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="315784842461708">
-            <conditions>
-                <condition id="0" name="On function" sid="534922545629899" type="Function">
-                    <param id="0" name="Name">&quot;DisableInteractions&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="179580567100607" type="System">
-                    <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">TRUE</param>
-                </action>
-                <action id="4" name="Set enabled" sid="875542481060121" type="ChooseOpponent">
-                    <param id="0" name="Mode">0</param>
-                </action>
-                <action id="4" name="Set enabled" sid="479921391938385" type="ChoosePassword">
-                    <param id="0" name="Mode">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="100577567578860">
-            <conditions>
-                <condition id="0" name="On function" sid="907420901239835" type="Function">
-                    <param id="0" name="Name">&quot;EnableInteractions&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="480085771873705" type="System">
-                    <param id="0" name="Variable">isWaitingForTransaction</param>
-                    <param id="1" name="Value">FALSE</param>
-                </action>
-                <action id="4" name="Set enabled" sid="737617446304934" type="ChooseOpponent">
-                    <param id="0" name="Mode">1</param>
-                </action>
-                <action id="4" name="Set enabled" sid="412327184356338" type="ChoosePassword">
-                    <param id="0" name="Mode">1</param>
-                </action>
-            </actions>
-        </event-block>
+        <event-group description="" sid="368309452772505" title="Coins">
+            <sub-events>
+                <event-block sid="520648326222076">
+                    <conditions>
+                        <condition id="0" name="On function" sid="355502283667214" type="Function">
+                            <param id="0" name="Name">&quot;ThrowCoins&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="159595781608421" type="Coin">
+                            <param id="0" name="Instance variable">isMine</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">TRUE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="513207674684386" type="Coin">
+                            <param id="0" name="Tweened property">1</param>
+                            <param id="1" name="Function">23</param>
+                            <param id="2" name="Target">&quot;20,20&quot;</param>
+                            <param id="3" name="Duration">1</param>
+                            <param id="4" name="Enforce mode">0</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="865570927299579" type="Coin">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="475804939524014">
+                    <conditions>
+                        <condition id="0" name="On function" sid="286345384753037" type="Function">
+                            <param id="0" name="Name">&quot;HideMyCoins&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="264223656911995" type="Coin">
+                            <param id="0" name="Instance variable">isMine</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">TRUE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="182771862930389" type="Coin">
+                            <param id="0" name="Width">0</param>
+                            <param id="1" name="Height">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="477515316658040" title="Waiting Wheel">
+            <sub-events>
+                <event-block sid="364117891774026">
+                    <conditions>
+                        <condition id="0" name="On function" sid="422283720756549" type="Function">
+                            <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="421308754146936" type="WaitingWheel">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="324154703742904" type="WaitingText">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="976270282577836">
+                    <conditions>
+                        <condition id="0" name="On function" sid="838044641674033" type="Function">
+                            <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="231760681517322" type="WaitingWheel">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="986924556748796" type="WaitingText">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="388633218372192" type="WaitingText">
+                            <param id="0" name="Text">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="890476685775762" title="Interactions">
+            <sub-events>
+                <event-block sid="315784842461708">
+                    <conditions>
+                        <condition id="0" name="On function" sid="534922545629899" type="Function">
+                            <param id="0" name="Name">&quot;DisableInteractions&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="179580567100607" type="System">
+                            <param id="0" name="Variable">isWaitingForTransaction</param>
+                            <param id="1" name="Value">TRUE</param>
+                        </action>
+                        <action id="4" name="Set enabled" sid="875542481060121" type="ChooseOpponent">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="4" name="Set enabled" sid="479921391938385" type="ChoosePassword">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="100577567578860">
+                    <conditions>
+                        <condition id="0" name="On function" sid="907420901239835" type="Function">
+                            <param id="0" name="Name">&quot;EnableInteractions&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="480085771873705" type="System">
+                            <param id="0" name="Variable">isWaitingForTransaction</param>
+                            <param id="1" name="Value">FALSE</param>
+                        </action>
+                        <action id="4" name="Set enabled" sid="737617446304934" type="ChooseOpponent">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="4" name="Set enabled" sid="412327184356338" type="ChoosePassword">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-block sid="842219368564924">
             <conditions>
                 <condition behavior="DragDrop" id="1" name="On drag start" sid="467096420627319" type="RulesButton" />
