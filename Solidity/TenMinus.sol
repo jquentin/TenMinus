@@ -66,18 +66,15 @@ contract TenMinus is owned {
         if (gamesInitiated[opponent][msg.sender].state != 0 && gamesInitiated[opponent][msg.sender].state != 3)
             throw;
             
-        gamesInitiated[msg.sender][opponent].state = 0;
         gamesInitiated[opponent][msg.sender].state = 0;
         
-        Game newGame;
-        newGame.state = 1;
-        newGame.player1CardHash = cardHash;
-        gamesInitiated[msg.sender][opponent] = newGame;
+        gamesInitiated[msg.sender][opponent].state = 1;
+        gamesInitiated[msg.sender][opponent].player1CardHash = cardHash;
         
         interactingPlayers[opponent].push(msg.sender);
         interactingPlayers[msg.sender].push(opponent);
         
-        GameStateChanged(msg.sender, opponent, newGame.state);
+        GameStateChanged(msg.sender, opponent, 1);
         
     }
     
@@ -85,11 +82,9 @@ contract TenMinus is owned {
     {
         if (gamesInitiated[opponent][msg.sender].state != 1)
             throw;
-        Game updatedGame = gamesInitiated[opponent][msg.sender];
-        updatedGame.state = 2;
-        updatedGame.player2Card = card;
-        gamesInitiated[opponent][msg.sender] = updatedGame;
-        GameStateChanged(opponent, msg.sender, updatedGame.state);
+        gamesInitiated[opponent][msg.sender].state = 2;
+        gamesInitiated[opponent][msg.sender].player2Card = card;
+        GameStateChanged(opponent, msg.sender, 2);
     }
     
     function Reveal(address opponent, uint8 card, string password) valueIsCard(card)
@@ -97,54 +92,49 @@ contract TenMinus is owned {
         
         if (gamesInitiated[msg.sender][opponent].state != 2)
             throw;
-            
-        Game updatedGame = gamesInitiated[msg.sender][opponent];
-        if (sha3 (password, CardToString(card)) == updatedGame.player1CardHash)
-        {
-            updatedGame.state = 3;
-            updatedGame.player1Card = card;
-            gamesInitiated[msg.sender][opponent] = updatedGame;
-            int8 result = ResolveGame (updatedGame);
-            int8 base = 4;
-            msg.sender.transfer((uint256)(base + result) * 1 finney);
-            opponent.transfer((uint256)(base - result) * 1 finney);
-            
-            // Remove the opponent from interactingPlayers[msg.sender]
-            uint length = interactingPlayers[msg.sender].length;
-            for (uint8 i = 0 ; i < length ; i++)
-            {
-                if (interactingPlayers[msg.sender][i] == opponent)
-                {
-                    interactingPlayers[msg.sender][i] = interactingPlayers[msg.sender][length - 1];
-                    delete interactingPlayers[msg.sender][length - 1];
-                    break;
-                }
-            }
-            interactingPlayers[msg.sender].length--;
-            
-            // Remove myself from interactingPlayers[opponent]
-            length = interactingPlayers[opponent].length;
-            for (i = 0 ; i < length ; i++)
-            {
-                if (interactingPlayers[opponent][i] == msg.sender)
-                {
-                    interactingPlayers[opponent][i] = interactingPlayers[opponent][length - 1];
-                    delete interactingPlayers[opponent][length - 1];
-                    break;
-                }
-            }
-            interactingPlayers[opponent].length--;
-            
-            GameStateChanged(msg.sender, opponent, updatedGame.state);
-        }
-        else
+        if (sha3 (password, CardToString(card)) != gamesInitiated[msg.sender][opponent].player1CardHash)
             throw;
+        
+        gamesInitiated[msg.sender][opponent].state = 3;
+        gamesInitiated[msg.sender][opponent].player1Card = card;
+        int8 result = ResolveGame (gamesInitiated[msg.sender][opponent].player1Card, gamesInitiated[msg.sender][opponent].player2Card);
+        int8 base = 4;
+        msg.sender.transfer((uint256)(base + result) * 1 finney);
+        opponent.transfer((uint256)(base - result) * 1 finney);
+        
+        // Remove the opponent from interactingPlayers[msg.sender]
+        uint length = interactingPlayers[msg.sender].length;
+        for (uint8 i = 0 ; i < length ; i++)
+        {
+            if (interactingPlayers[msg.sender][i] == opponent)
+            {
+                interactingPlayers[msg.sender][i] = interactingPlayers[msg.sender][length - 1];
+                delete interactingPlayers[msg.sender][length - 1];
+                break;
+            }
+        }
+        interactingPlayers[msg.sender].length--;
+        
+        // Remove myself from interactingPlayers[opponent]
+        length = interactingPlayers[opponent].length;
+        for (i = 0 ; i < length ; i++)
+        {
+            if (interactingPlayers[opponent][i] == msg.sender)
+            {
+                interactingPlayers[opponent][i] = interactingPlayers[opponent][length - 1];
+                delete interactingPlayers[opponent][length - 1];
+                break;
+            }
+        }
+        interactingPlayers[opponent].length--;
+        
+        GameStateChanged(msg.sender, opponent, 3);
     }
     
     // Returns the number of coins player 1 wins (negative if player 2 wins)
-    function ResolveGame (Game game) internal returns (int8)
+    function ResolveGame (uint8 player1Card, uint8 player2Card) internal returns (int8)
     {
-        int8 difference = ((int8) (game.player1Card)) - ((int8) (game.player2Card));
+        int8 difference = ((int8) (player1Card)) - ((int8) (player2Card));
         int8 signDif = 1;
         if (difference < 0) signDif = -1;
         int8 absDif = difference >= 0 ? difference : -difference;
