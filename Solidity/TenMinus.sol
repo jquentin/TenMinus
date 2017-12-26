@@ -53,9 +53,17 @@ contract TenMinus is owned {
         uint8 player2Card;
     }
     
+    struct PastGame
+    {
+        uint8 player1Card;
+        uint8 player2Card;
+    }
+    
     mapping (address => address[]) interactingPlayers;
     
     mapping (address => mapping(address => Game)) gamesInitiated;
+    
+    mapping (address => mapping(address => PastGame)) gamesCompleted;
     
     function InitiateGame(address opponent, bytes32 cardHash) payable sentEnoughCashToPlay()
     {
@@ -128,6 +136,12 @@ contract TenMinus is owned {
         }
         interactingPlayers[opponent].length--;
         
+        gamesCompleted[msg.sender][opponent].player1Card = card;
+        gamesCompleted[msg.sender][opponent].player2Card = gamesInitiated[msg.sender][opponent].player2Card;
+        
+        gamesCompleted[opponent][msg.sender].player1Card = 0;
+        gamesCompleted[opponent][msg.sender].player2Card = 0;
+        
         GameStateChanged(msg.sender, opponent, 3);
     }
     
@@ -166,6 +180,14 @@ contract TenMinus is owned {
             playerIndex = 2;
         }
         return (game.state, playerIndex, game.player1Card, game.player2Card);
+    }
+    
+    function GetLastGameState (address opponent) constant returns (uint8 isPlayer, uint8 player1Card, uint8 player2Card)
+    {
+        if (gamesCompleted[msg.sender][opponent].player1Card != 0)
+            return(1, gamesCompleted[msg.sender][opponent].player1Card, gamesCompleted[msg.sender][opponent].player2Card);
+        else
+            return(2, gamesCompleted[opponent][msg.sender].player1Card, gamesCompleted[opponent][msg.sender].player2Card);
     }
     
 }
