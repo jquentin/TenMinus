@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Loading events</name>
+    <events>
+        <variable constant="0" name="LoadingStartTime" sid="407031682175883" static="0" type="number">0</variable>
+        <event-block sid="682189534144599">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="162043777191192" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="450800033782880" type="GameStateDescription">
+                    <param id="0" name="Text">&quot;Loading Selected Game...&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="322145447280004" type="Function">
+                    <param id="0" name="Name">&quot;UpdateUI&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="230642785412052" type="System">
+                    <param id="0" name="Variable">LoadingStartTime</param>
+                    <param id="1" name="Value">time</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="460609030937483">
+            <conditions>
+                <condition id="0" name="On function" sid="564287013490388" type="Function">
+                    <param id="0" name="Name">&quot;UpdateUI&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="811335932250850" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Update UI&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="896794204347310">
+                    <conditions>
+                        <condition id="0" name="Compare selection" sid="153662166874907" type="SelectOpponent">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Index">SelectOpponent.ItemCount-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="944668800503533" type="System">
+                            <param id="0" name="Layout">CreateGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="336773258797483">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="491465011125942" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call" sid="732548515759150" type="Ethereum">
+                            <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                            <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                            <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="252584746402338">
+            <conditions>
+                <condition id="1" name="On function success" sid="210386149518548" type="Ethereum">
+                    <param id="0" name="ID">&quot;GetGameState&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="959261002677507" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="-9" name="Set value" sid="417225801109350" type="System">
+                    <param id="0" name="Variable">selectedOpponentGameState</param>
+                    <param id="1" name="Value">int (tokenat (Ethereum.CurrentCallbackResponse, 0, &quot;,&quot;))</param>
+                </action>
+                <action id="-9" name="Set value" sid="491751616804539" type="System">
+                    <param id="0" name="Variable">selectedOpponentGameInitiator</param>
+                    <param id="1" name="Value">int (tokenat (Ethereum.CurrentCallbackResponse, 1, &quot;,&quot;))</param>
+                </action>
+                <action id="-9" name="Set value" sid="462889959661800" type="System">
+                    <param id="0" name="Variable">selectedOpponentGameP1Card</param>
+                    <param id="1" name="Value">int (tokenat (Ethereum.CurrentCallbackResponse, 2, &quot;,&quot;))</param>
+                </action>
+                <action id="-9" name="Set value" sid="585397960502429" type="System">
+                    <param id="0" name="Variable">selectedOpponentGameP2Card</param>
+                    <param id="1" name="Value">int (tokenat (Ethereum.CurrentCallbackResponse, 3, &quot;,&quot;))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="722120605339263">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="193324135581826" type="System">
+                            <param id="0" name="First value">time</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">LoadingStartTime + 2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="284342405863526" type="System">
+                            <param id="0" name="Seconds">LoadingStartTime + 2 - time</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="177923667554228">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="953137410479733" type="System">
+                            <param id="0" name="First value">selectedOpponentGameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="443207387188945" type="System">
+                            <param id="0" name="First value">selectedOpponentGameInitiator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="460040572334242" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Waiting for Opponent to Answer Game&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="781830630044951" type="System">
+                            <param id="0" name="Layout">WaitingForAnswer</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="845163623263098">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="490028637693832" type="System">
+                            <param id="0" name="First value">selectedOpponentGameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="967061468552225" type="System">
+                            <param id="0" name="First value">selectedOpponentGameInitiator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="895795973661405" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="401821208850564" type="System">
+                            <param id="0" name="Layout">RevealGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="145223424213065">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="444981198114831" type="System">
+                            <param id="0" name="First value">selectedOpponentGameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="939567532254304" type="System">
+                            <param id="0" name="First value">selectedOpponentGameInitiator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="191768679555377" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Answer Game&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="630084028211828" type="System">
+                            <param id="0" name="Layout">AnswerGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="323082504196064">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="334954680665337" type="System">
+                            <param id="0" name="First value">selectedOpponentGameState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="297657685504828" type="System">
+                            <param id="0" name="First value">selectedOpponentGameInitiator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="723732865571172" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Reveal Game&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="451130659538294" type="System">
+                            <param id="0" name="Layout">WaitingForReveal</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

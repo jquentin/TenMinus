@@ -50,13 +50,16 @@
                             <param id="0" name="Variable">selectedOpponent</param>
                             <param id="1" name="Value">SelectOpponent.SelectedText</param>
                         </action>
-                        <action id="0" name="Call function" sid="389535168642741" type="Function">
+                        <action disabled="1" id="0" name="Call function" sid="389535168642741" type="Function">
                             <param id="0" name="Name">&quot;UpdateUI&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
+                        <action id="-2" name="Go to layout" sid="530496562476525" type="System">
+                            <param id="0" name="Layout">Loading</param>
+                        </action>
                     </actions>
                 </event-block>
-                <event-block sid="674497081804492">
+                <event-block disabled="1" sid="674497081804492">
                     <conditions>
                         <condition id="0" name="On function" sid="668107778441083" type="Function">
                             <param id="0" name="Name">&quot;UpdateUI&quot;</param>
@@ -69,7 +72,7 @@
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block sid="872167755163082">
+                        <event-block disabled="1" sid="872167755163082">
                             <conditions>
                                 <condition id="0" name="Compare selection" sid="967489056580094" type="SelectOpponent">
                                     <param id="0" name="Comparison">0</param>
@@ -82,7 +85,7 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="483242571518691">
+                        <event-block disabled="1" sid="483242571518691">
                             <conditions>
                                 <condition id="-22" name="Else" sid="834584495053110" type="System" />
                             </conditions>

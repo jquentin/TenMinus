@@ -238,6 +238,7 @@
         <layout>RevealGame.xml</layout>
         <layout>WaitingForAnswer.xml</layout>
         <layout>WaitingForReveal.xml</layout>
+        <layout>Loading.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Login events.xml</event-sheet>
@@ -248,6 +249,7 @@
         <event-sheet>WaitingForAnswer events.xml</event-sheet>
         <event-sheet>WaitingForReveal events.xml</event-sheet>
         <event-sheet>Card events.xml</event-sheet>
+        <event-sheet>Loading events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
