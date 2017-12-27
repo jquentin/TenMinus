@@ -12,6 +12,10 @@
                 <action id="0" name="Set text" sid="728974918255314" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Reveal your card&quot;</param>
                 </action>
+                <action id="0" name="Call function" sid="932760497402401" type="Function">
+                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="945351031135589">

@@ -36,7 +36,7 @@
                 </action>
                 <action id="0" name="Call function" sid="123131492717681" type="Function">
                     <param id="0" name="Name">&quot;GoToGameScene&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                    <param id="1" name="Parameter {n}">FALSE</param>
                 </action>
                 <action id="0" name="Call" sid="570300098593397" type="Ethereum">
                     <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>

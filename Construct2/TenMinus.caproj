@@ -252,6 +252,14 @@
                 </behavior-type>
             </behaviors>
         </object-type>
+        <object-type name="PlayAgainButton" sid="503859632781416">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="DragDrop" sid="205816972970620">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -259,6 +267,7 @@
         <layout>CreateGame.xml</layout>
         <layout>AnswerGame.xml</layout>
         <layout>RevealGame.xml</layout>
+        <layout>Complete.xml</layout>
         <layout>WaitingForAnswer.xml</layout>
         <layout>WaitingForReveal.xml</layout>
         <layout>Loading.xml</layout>
@@ -275,6 +284,7 @@
         <event-sheet>Card events.xml</event-sheet>
         <event-sheet>Loading events.xml</event-sheet>
         <event-sheet>Rules events.xml</event-sheet>
+        <event-sheet>Complete events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
@@ -282,8 +292,8 @@
         <global-instance type="Browser" uid="13" />
         <global-instance type="Ethereum" uid="8">
             <properties>
-                <contract-address>0x3117c306a26ede0c6830b9315f3318afea7a81e8</contract-address>
-                <contract-abi>[{&quot;constant&quot;: true,&quot;inputs&quot;: [],&quot;name&quot;: &quot;GetPlayersInteracting&quot;,&quot;outputs&quot;: [{&quot;name&quot;: &quot;&quot;,&quot;type&quot;: &quot;address[]&quot;}],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;view&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: true,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;}],&quot;name&quot;: &quot;GetGameState&quot;,&quot;outputs&quot;: [{&quot;name&quot;: &quot;state&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;isPlayer&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;player1Card&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;player2Card&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;view&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: false,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;name&quot;: &quot;card&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;name&quot;: &quot;AnswerGame&quot;,&quot;outputs&quot;: [],&quot;payable&quot;: true,&quot;stateMutability&quot;: &quot;payable&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;anonymous&quot;: false,&quot;inputs&quot;: [{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player1&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player2&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;state&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;name&quot;: &quot;GameStateChanged&quot;,&quot;type&quot;: &quot;event&quot;},{&quot;constant&quot;: false,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;name&quot;: &quot;cardHash&quot;,&quot;type&quot;: &quot;bytes32&quot;}],&quot;name&quot;: &quot;InitiateGame&quot;,&quot;outputs&quot;: [],&quot;payable&quot;: true,&quot;stateMutability&quot;: &quot;payable&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: false,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;name&quot;: &quot;card&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;password&quot;,&quot;type&quot;: &quot;string&quot;}],&quot;name&quot;: &quot;Reveal&quot;,&quot;outputs&quot;: [],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;nonpayable&quot;,&quot;type&quot;: &quot;function&quot;}]</contract-abi>
+                <contract-address>0x8403774b3f3a37551a06162e356dcf0d5eded779</contract-address>
+                <contract-abi>[{&quot;constant&quot;: true,&quot;inputs&quot;: [],&quot;name&quot;: &quot;GetPlayersInteracting&quot;,&quot;outputs&quot;: [{&quot;name&quot;: &quot;&quot;,&quot;type&quot;: &quot;address[]&quot;}],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;view&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: true,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;}],&quot;name&quot;: &quot;GetLastGameState&quot;,&quot;outputs&quot;: [{&quot;name&quot;: &quot;isPlayer&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;player1Card&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;player2Card&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;view&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: true,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;}],&quot;name&quot;: &quot;GetGameState&quot;,&quot;outputs&quot;: [{&quot;name&quot;: &quot;state&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;isPlayer&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;player1Card&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;player2Card&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;view&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: false,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;name&quot;: &quot;card&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;name&quot;: &quot;AnswerGame&quot;,&quot;outputs&quot;: [],&quot;payable&quot;: true,&quot;stateMutability&quot;: &quot;payable&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;anonymous&quot;: false,&quot;inputs&quot;: [{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player1&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player2&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player1Card&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player2Card&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;name&quot;: &quot;GameComplete&quot;,&quot;type&quot;: &quot;event&quot;},{&quot;anonymous&quot;: false,&quot;inputs&quot;: [{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player1&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;player2&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;indexed&quot;: false,&quot;name&quot;: &quot;state&quot;,&quot;type&quot;: &quot;uint8&quot;}],&quot;name&quot;: &quot;GameStateChanged&quot;,&quot;type&quot;: &quot;event&quot;},{&quot;constant&quot;: false,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;name&quot;: &quot;cardHash&quot;,&quot;type&quot;: &quot;bytes32&quot;}],&quot;name&quot;: &quot;InitiateGame&quot;,&quot;outputs&quot;: [],&quot;payable&quot;: true,&quot;stateMutability&quot;: &quot;payable&quot;,&quot;type&quot;: &quot;function&quot;},{&quot;constant&quot;: false,&quot;inputs&quot;: [{&quot;name&quot;: &quot;opponent&quot;,&quot;type&quot;: &quot;address&quot;},{&quot;name&quot;: &quot;card&quot;,&quot;type&quot;: &quot;uint8&quot;},{&quot;name&quot;: &quot;password&quot;,&quot;type&quot;: &quot;string&quot;}],&quot;name&quot;: &quot;Reveal&quot;,&quot;outputs&quot;: [],&quot;payable&quot;: false,&quot;stateMutability&quot;: &quot;nonpayable&quot;,&quot;type&quot;: &quot;function&quot;}]</contract-abi>
             </properties>
         </global-instance>
         <global-instance type="Mouse" uid="0" />

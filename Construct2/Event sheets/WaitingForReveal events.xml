@@ -12,6 +12,11 @@
                 <action id="0" name="Set text" sid="887221956442165" type="GameStateDescription">
                     <param id="0" name="Text">&quot;Waiting for the opponent to reveal his card&quot;</param>
                 </action>
+                <action id="0" name="Call" sid="625424262473817" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                    <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="467155152246237">
@@ -37,6 +42,32 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="505522241749084">
+            <conditions>
+                <condition id="1" name="On function success" sid="481442294725069" type="Ethereum">
+                    <param id="0" name="ID">&quot;GetGameState&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="958762636185067" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="338926676632837" type="Function">
+                    <param id="0" name="Name">&quot;AnalyseGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="622984803718312" type="Function">
+                    <param id="0" name="Name">&quot;GoToGameScene&quot;</param>
+                    <param id="1" name="Parameter {n}">FALSE</param>
+                </action>
+                <action id="0" name="Call" sid="938403836006061" type="Ethereum">
+                    <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                    <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

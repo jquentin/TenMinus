@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Complete events</name>
+    <events>
+        <include>Common events</include>
+        <event-block sid="164829081227266">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="516424209690213" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="796868854554791" type="GameStateDescription">
+                    <param id="0" name="Text">&quot;Game Complete&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="lowerCard" sid="668410212270836" static="0" type="number">0</variable>
+                <variable constant="0" name="upperCard" sid="310586872273010" static="0" type="number">0</variable>
+                <variable constant="0" name="lowerCoins" sid="660314802978124" static="0" type="number">0</variable>
+                <variable constant="0" name="upperCoins" sid="795111998308720" static="0" type="number">0</variable>
+                <variable constant="0" name="payoff" sid="196321443887474" static="0" type="number">0</variable>
+                <event-block sid="261405805116885">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="903178376847382" type="System">
+                            <param id="0" name="Variable">selectedOpponentGameInitiator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="436420182751738" type="System">
+                            <param id="0" name="Variable">lowerCard</param>
+                            <param id="1" name="Value">selectedOpponentGameP1Card</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="159741131286568" type="System">
+                            <param id="0" name="Variable">upperCard</param>
+                            <param id="1" name="Value">selectedOpponentGameP2Card</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="553399503724503">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="625158199716417" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="182998211750819" type="System">
+                            <param id="0" name="Variable">lowerCard</param>
+                            <param id="1" name="Value">selectedOpponentGameP2Card</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="933548991622232" type="System">
+                            <param id="0" name="Variable">upperCard</param>
+                            <param id="1" name="Value">selectedOpponentGameP1Card</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="174130998524544">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="237380364368240" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="978265096017826" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Value">lowerCard</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="399932861396059" type="Card">
+                            <param id="0" name="Frame number">24 + lowerCard</param>
+                        </action>
+                        <action id="14" name="Log" sid="261298893149659" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">lowerCard</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="458476664070822">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="135003031573806" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="921502207309002" type="Card">
+                            <param id="0" name="Instance variable">value</param>
+                            <param id="1" name="Value">upperCard</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="657748424542469" type="Card">
+                            <param id="0" name="Frame number">24 + upperCard</param>
+                        </action>
+                        <action id="14" name="Log" sid="634595767790017" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">upperCard</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="665844003594393">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="187324389093597" type="System">
+                            <param id="0" name="Variable">payoff</param>
+                            <param id="1" name="Value">Function.Call(&quot;CalculatePayoff&quot;, lowerCard, upperCard)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="492870099644489">
+                    <conditions>
+                        <condition id="-10" name="For" sid="889873928077649" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">4 + payoff</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="340284525663607" type="System">
+                            <param id="0" name="Object to create">Coin</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">TABLE_CENTER_X + (loopindex - (5 + payoff) / 2) * 25</param>
+                            <param id="3" name="Y">285</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="393376804651624">
+                    <conditions>
+                        <condition id="-10" name="For" sid="438738578880936" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">4 - payoff</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="636261064289525" type="System">
+                            <param id="0" name="Object to create">Coin</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">TABLE_CENTER_X + (loopindex - (5 - payoff) / 2) * 25</param>
+                            <param id="3" name="Y">127</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="897753344593142">
+            <conditions>
+                <condition id="0" name="On function" sid="793348903885887" type="Function">
+                    <param id="0" name="Name">&quot;CalculatePayoff&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="difference" sid="715930305426860" static="0" type="number">0</variable>
+                <event-block sid="701280918836959">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="367863459044178" type="System">
+                            <param id="0" name="Variable">difference</param>
+                            <param id="1" name="Value">Function.Param(0) - Function.Param(1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="467425320226219">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="712951345034696" type="System">
+                            <param id="0" name="Variable">difference</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">-5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="624174320985822" type="Function">
+                            <param id="0" name="Value">10 + difference</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="424484582962732">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="339572862794719" type="System" />
+                        <condition id="-14" name="Compare variable" sid="242743577587495" type="System">
+                            <param id="0" name="Variable">difference</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="720131704428862" type="Function">
+                            <param id="0" name="Value">-10 + difference</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="583067266733904">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="534511235606509" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set return value" sid="752308293058746" type="Function">
+                            <param id="0" name="Value">difference</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="301360466638174">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="239681200371099" type="PlayAgainButton" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="932104803952244" type="System">
+                    <param id="0" name="Variable">creatingGameWithExistingOpponent</param>
+                    <param id="1" name="Value">TRUE</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="596201909473202" type="System">
+                    <param id="0" name="Layout">CreateGame</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

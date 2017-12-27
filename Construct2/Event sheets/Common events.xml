@@ -6,6 +6,7 @@
         <include>Card events</include>
         <variable constant="1" name="FALSE" sid="563071464532105" static="0" type="number">0</variable>
         <variable constant="1" name="TRUE" sid="500831860645643" static="0" type="number">1</variable>
+        <variable constant="1" name="TABLE_CENTER_X" sid="879270916796876" static="0" type="number">418</variable>
         <variable constant="0" name="selectedOpponentIndex" sid="197833312860567" static="0" type="number">-1</variable>
         <variable constant="0" name="selectedOpponent" sid="304607072944993" static="0" type="text"></variable>
         <variable constant="0" name="selectedOpponentGameState" sid="158614382337166" static="0" type="number">0</variable>
@@ -41,19 +42,58 @@
                     <conditions>
                         <condition id="1" name="On selection changed" sid="612871336892752" type="SelectOpponent" />
                     </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="802278028417653" type="System">
-                            <param id="0" name="Variable">selectedOpponentIndex</param>
-                            <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="723183094996062" type="System">
-                            <param id="0" name="Variable">selectedOpponent</param>
-                            <param id="1" name="Value">SelectOpponent.SelectedText</param>
-                        </action>
-                        <action id="-2" name="Go to layout" sid="530496562476525" type="System">
-                            <param id="0" name="Layout">Loading</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="354354646054803">
+                            <conditions>
+                                <condition id="0" name="Compare selection" sid="524077222444286" type="SelectOpponent">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Index">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Go to layout" sid="687757130867648" type="System">
+                                    <param id="0" name="Layout">Login</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="180807751681534">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="244703326675171" type="System" />
+                                <condition id="0" name="Compare selection" sid="642844115580236" type="SelectOpponent">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Index">SelectOpponent.ItemCount-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="244975688582236" type="System">
+                                    <param id="0" name="Variable">creatingGameWithExistingOpponent</param>
+                                    <param id="1" name="Value">FALSE</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="472597484746935" type="System">
+                                    <param id="0" name="Layout">CreateGame</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="711826272412366">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="563636368181143" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="802278028417653" type="System">
+                                    <param id="0" name="Variable">selectedOpponentIndex</param>
+                                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="723183094996062" type="System">
+                                    <param id="0" name="Variable">selectedOpponent</param>
+                                    <param id="1" name="Value">SelectOpponent.SelectedText</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="530496562476525" type="System">
+                                    <param id="0" name="Layout">Loading</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="100151342795596">
                     <conditions>
@@ -89,6 +129,16 @@
                     <actions />
                     <sub-events>
                         <variable constant="0" name="nextScene" sid="748576703129815" static="0" type="text"></variable>
+                        <variable constant="0" name="force" sid="756247880546351" static="0" type="number">1</variable>
+                        <event-block sid="312829948927376">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="397328404632639" type="System">
+                                    <param id="0" name="Variable">force</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="660565775714144">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="836704889449012" type="System">
@@ -169,12 +219,32 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="916201838610336">
+                        <event-block sid="297439470522292">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="591960587968793" type="System">
+                                    <param id="0" name="First value">selectedOpponentGameState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="845023776163558" type="System">
+                                    <param id="0" name="Variable">nextScene</param>
+                                    <param id="1" name="Value">&quot;Complete&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="916201838610336">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="166105104643497" type="System">
                                     <param id="0" name="First value">nextScene</param>
                                     <param id="1" name="Comparison">1</param>
                                     <param id="2" name="Second value">LayoutName</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="607836593918014" type="System">
+                                    <param id="0" name="Variable">force</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">TRUE</param>
                                 </condition>
                             </conditions>
                             <actions>

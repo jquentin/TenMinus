@@ -16,6 +16,10 @@
                     <param id="0" name="Name">&quot;HideMyCoins&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="0" name="Call function" sid="128342968978159" type="Function">
+                    <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="595393635126858">
