@@ -16,6 +16,12 @@
                     <param id="0" name="Name">&quot;HideWaitingWheel&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="5" name="Check item exists" sid="307310770633675" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Password_&quot; &amp; lowercase(Ethereum.CurrentAccount) &amp; &quot; -&gt; &quot; &amp; lowercase(SelectOpponent.SelectedText)</param>
+                </action>
+                <action id="5" name="Check item exists" sid="823367915019574" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Card_&quot; &amp; lowercase(Ethereum.CurrentAccount) &amp; &quot; -&gt; &quot; &amp; lowercase(SelectOpponent.SelectedText)</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="945351031135589">
@@ -45,11 +51,35 @@
                     <param id="1" name="Click type">0</param>
                     <param id="2" name="Object clicked">Card</param>
                 </condition>
+                <condition id="-7" name="Compare instance variable" sid="273975619851036" type="Card">
+                    <param id="0" name="Instance variable">SideUp</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">BACK</param>
+                </condition>
             </conditions>
             <actions>
+                <action id="0" name="Call function" sid="992486627931050" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;ClickCard &quot; &amp; Card.SideUp</param>
+                </action>
                 <action id="0" name="Call function" sid="713543883670979" type="Function">
                     <param id="0" name="Name">&quot;PlayCard&quot;</param>
                     <param id="1" name="Parameter {n}">Card.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="697448377043600">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="789911653042622" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Card</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="787271518473334" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;ClickCard &quot; &amp; Card.SideUp</param>
                 </action>
             </actions>
         </event-block>
@@ -69,11 +99,19 @@
                     <param id="2" name="Callback id">&quot;Reveal&quot;</param>
                     <param id="3" name="Value">0</param>
                 </action>
+                <action id="-10" name="Set value" sid="722757259717376" type="Card">
+                    <param id="0" name="Instance variable">value</param>
+                    <param id="1" name="Value">int(RevealCard.SelectedText)</param>
+                </action>
+                <action id="0" name="Call function" sid="425130429868001" type="Function">
+                    <param id="0" name="Name">&quot;FlipCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID{###}FRONT</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="162330874668774">
             <conditions>
-                <condition id="3" name="On function callback" sid="835180617294314" type="Ethereum">
+                <condition id="1" name="On function success" sid="835180617294314" type="Ethereum">
                     <param id="0" name="ID">&quot;Reveal&quot;</param>
                 </condition>
             </conditions>
@@ -81,6 +119,85 @@
                 <action id="0" name="Call function" sid="762554836442677" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
                     <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="754525797600981">
+            <conditions>
+                <condition id="2" name="On function error" sid="859391067644626" type="Ethereum">
+                    <param id="0" name="ID">&quot;Reveal&quot;</param>
+                </condition>
+                <condition id="-20" name="Pick highest/lowest" sid="517004157765253" type="Card">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Instance variable">isMine</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="444613901542593" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackError</param>
+                </action>
+                <action id="0" name="Call function" sid="324547479022492" type="Function">
+                    <param id="0" name="Name">&quot;FlipCard&quot;</param>
+                    <param id="1" name="Parameter {n}">Card.UID{###}BACK</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="672366158145443">
+            <conditions>
+                <condition id="9" name="On item exists" sid="763314623032045" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Password_&quot; &amp; Ethereum.CurrentAccount &amp; &quot; -&gt; &quot; &amp; SelectOpponent.SelectedText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="369258385184692" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Password: &quot; &amp; LocalStorage.ItemValue</param>
+                </action>
+                <action id="0" name="Set text" sid="125560245142131" type="ChoosePassword">
+                    <param id="0" name="Text">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="849137195367228">
+            <conditions>
+                <condition id="9" name="On item exists" sid="479191764755429" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Card_&quot; &amp; Ethereum.CurrentAccount &amp; &quot; -&gt; &quot; &amp; SelectOpponent.SelectedText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="974491446257390" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Card: &quot; &amp; LocalStorage.ItemValue</param>
+                </action>
+                <action id="0" name="Set selection" sid="731447534333508" type="RevealCard">
+                    <param id="0" name="Index">LocalStorage.ItemValue - 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="703512182839580">
+            <conditions>
+                <condition id="10" name="On item missing" sid="980555303922119" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Password_&quot; &amp; Ethereum.CurrentAccount &amp; &quot; -&gt; &quot; &amp; SelectOpponent.SelectedText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="698706099729160" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Missing password&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="516233991704923">
+            <conditions>
+                <condition id="10" name="On item missing" sid="987347264761872" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Card_&quot; &amp; Ethereum.CurrentAccount &amp; &quot; -&gt; &quot; &amp; SelectOpponent.SelectedText</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="14" name="Log" sid="899999014939051" type="Browser">
+                    <param id="0" name="Type">0</param>
+                    <param id="1" name="Message">&quot;Missing card&quot;</param>
                 </action>
             </actions>
         </event-block>

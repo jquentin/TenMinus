@@ -18,6 +18,10 @@
                 <action id="5" name="Set frame" sid="955334988124987" type="Card">
                     <param id="0" name="Frame number">0</param>
                 </action>
+                <action id="-10" name="Set value" sid="156862731541893" type="Card">
+                    <param id="0" name="Instance variable">SideUp</param>
+                    <param id="1" name="Value">BACK</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block any="1" sid="465139114316828">

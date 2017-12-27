@@ -180,7 +180,26 @@
                     <param id="0" name="Name">&quot;ThrowCoins&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="0" name="Set item" sid="579705509323732" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Password_&quot; &amp; lowercase(Ethereum.CurrentAccount) &amp; &quot; -&gt; &quot; &amp; lowercase(ChooseOpponent.Text)</param>
+                    <param id="1" name="Value">ChoosePassword.Text</param>
+                </action>
             </actions>
+            <sub-events>
+                <event-block sid="261239854310858">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="442950288283150" type="Card">
+                            <param id="0" name="Unique ID">selectedCardUID</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set item" sid="427197784471990" type="LocalStorage">
+                            <param id="0" name="Key">&quot;Card_&quot; &amp; lowercase(Ethereum.CurrentAccount) &amp; &quot; -&gt; &quot; &amp; lowercase(ChooseOpponent.Text)</param>
+                            <param id="1" name="Value">Card.value</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="634923369481010">
             <conditions>

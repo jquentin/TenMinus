@@ -13,7 +13,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layout order="2">Login</layout>
         <layout order="5">Complete</layout>
         <layout order="12">CreateGame</layout>
-        <event-sheet active="1" order="0">CreateGame events</event-sheet>
+        <layout order="13">RevealGame</layout>
+        <event-sheet order="0">CreateGame events</event-sheet>
         <event-sheet order="1">AnswerGame events</event-sheet>
         <event-sheet order="3">RevealGame events</event-sheet>
         <event-sheet order="4">Common events</event-sheet>
@@ -23,6 +24,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="9">WaitingForReveal events</event-sheet>
         <event-sheet order="10">Login events</event-sheet>
         <event-sheet order="11">Rules events</event-sheet>
+        <event-sheet active="1" order="14">Card events</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

@@ -110,7 +110,8 @@
                     </properties>
                     <instance-variables>
                         <value>-1</value>
-                        <SideUp>1</SideUp>
+                        <SideUp>0</SideUp>
+                        <isMine>1</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -150,6 +151,7 @@
                     <instance-variables>
                         <value>0</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">

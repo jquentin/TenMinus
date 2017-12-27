@@ -61,6 +61,7 @@
                     <instance-variables>
                         <value>1</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -100,6 +101,7 @@
                     <instance-variables>
                         <value>2</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -139,6 +141,7 @@
                     <instance-variables>
                         <value>3</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -178,6 +181,7 @@
                     <instance-variables>
                         <value>4</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -217,6 +221,7 @@
                     <instance-variables>
                         <value>5</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -256,6 +261,7 @@
                     <instance-variables>
                         <value>6</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -295,6 +301,7 @@
                     <instance-variables>
                         <value>7</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -334,6 +341,7 @@
                     <instance-variables>
                         <value>8</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -373,6 +381,7 @@
                     <instance-variables>
                         <value>9</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -412,6 +421,7 @@
                     <instance-variables>
                         <value>10</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
@@ -451,6 +461,7 @@
                     <instance-variables>
                         <value>-1</value>
                         <SideUp>1</SideUp>
+                        <isMine>0</isMine>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="LiteTween">
