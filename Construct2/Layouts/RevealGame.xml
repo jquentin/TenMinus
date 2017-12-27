@@ -53,7 +53,7 @@
                 </instance>
                 <instance type="RevealCard" uid="7">
                     <properties>
-                        <items>1;2;3;4;5;6;7;8;9;10</items>
+                        <items>Card played;1;2;3;4;5;6;7;8;9;10</items>
                         <tooltip>Reveal your card</tooltip>
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>
@@ -79,7 +79,7 @@
                     <properties>
                         <text></text>
                         <placeholder>Reveal Password</placeholder>
-                        <tooltip></tooltip>
+                        <tooltip>The password that was used to encrypt your card. If you used a different computer or browser to play the card, you can paste the password here.</tooltip>
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>
                         <read-only>No</read-only>
@@ -94,7 +94,7 @@
                         <x>217</x>
                         <y>75</y>
                         <z>0</z>
-                        <width>150</width>
+                        <width>369.99987793</width>
                         <height>22</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>

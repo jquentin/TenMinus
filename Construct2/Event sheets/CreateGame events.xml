@@ -65,6 +65,16 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="239482113487158">
+            <conditions>
+                <condition id="-18" name="On created" sid="795194151628293" type="ChoosePassword" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="849586064818342" type="ChoosePassword">
+                    <param id="0" name="Text">Function.Call(&quot;GenerateRandomPassword&quot;)</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="698213329208806">
             <conditions>
                 <condition id="6" name="On object clicked" sid="856665222830753" type="Mouse">
@@ -359,6 +369,37 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="739617118904650">
+            <conditions>
+                <condition id="1" name="Is checked" sid="462367955558242" type="EditPassword" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set enabled" sid="916242880762251" type="ChoosePassword">
+                    <param id="0" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="124208775004500">
+            <conditions>
+                <condition id="-22" name="Else" sid="591067344614490" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set enabled" sid="370810703816618" type="ChoosePassword">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="558316068706003">
+            <conditions>
+                <condition id="-18" name="On created" sid="787273586582167" type="EditPassword" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set CSS style" sid="221571493617539" type="EditPassword">
+                    <param id="0" name="Property name">&quot;color&quot;</param>
+                    <param id="1" name="Value">&quot;white&quot;</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

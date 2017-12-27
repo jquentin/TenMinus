@@ -548,5 +548,17 @@
                 <action id="-21" name="Reset global variables" sid="176728155897269" type="System" />
             </actions>
         </event-block>
+        <event-block sid="490108531900556">
+            <conditions>
+                <condition id="0" name="On function" sid="508146693453998" type="Function">
+                    <param id="0" name="Name">&quot;GenerateRandomPassword&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="650082469340385" type="Function">
+                    <param id="0" name="Value">Ethereum.Sha3(random(1000000))</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

@@ -57,8 +57,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>247.000549316</x>
-                        <y>350</y>
+                        <x>239</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -97,8 +97,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>287.500579834</x>
-                        <y>350</y>
+                        <x>279.500030518</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -137,8 +137,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>329.499969482</x>
-                        <y>350</y>
+                        <x>321.499420166</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -177,8 +177,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>370.500274658</x>
-                        <y>350</y>
+                        <x>362.499725342</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -217,8 +217,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>411.000335693</x>
-                        <y>350</y>
+                        <x>402.999786377</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -251,7 +251,7 @@
                         <x>217</x>
                         <y>44.999923706</y>
                         <z>0</z>
-                        <width>303.499694824</width>
+                        <width>350.499450684</width>
                         <height>22</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -286,8 +286,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>451.750091553</x>
-                        <y>350</y>
+                        <x>443.749542236</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -326,8 +326,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>492.501037598</x>
-                        <y>350</y>
+                        <x>484.500488281</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -366,8 +366,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>533.999816895</x>
-                        <y>350</y>
+                        <x>525.999267578</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -406,8 +406,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>576.000366211</x>
-                        <y>350</y>
+                        <x>567.999816895</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -446,8 +446,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>618.000244141</x>
-                        <y>350</y>
+                        <x>609.999694824</x>
+                        <y>345</y>
                         <z>0</z>
                         <width>40</width>
                         <height>60</height>
@@ -462,10 +462,10 @@
                     <properties>
                         <text></text>
                         <placeholder>Password</placeholder>
-                        <tooltip></tooltip>
+                        <tooltip>The password that will be used to encrypt your choice of card. Save it if you plan to reveal your card on a different computer or browser.</tooltip>
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>
-                        <read-only>No</read-only>
+                        <read-only>Yes</read-only>
                         <spell-check>No</spell-check>
                         <type>Text</type>
                         <auto-font-size>Yes</auto-font-size>
@@ -477,7 +477,7 @@
                         <x>217</x>
                         <y>75</y>
                         <z>0</z>
-                        <width>302.500793457</width>
+                        <width>349.500549316</width>
                         <height>22</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -691,6 +691,30 @@
                         <hotspotY>0.479704797</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="EditPassword" uid="91">
+                    <properties>
+                        <type>Checkbox</type>
+                        <text>Edit</text>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <auto-font-size>No</auto-font-size>
+                        <id-optional></id-optional>
+                        <checked>No</checked>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>569.000915527</x>
+                        <y>74.74961853</y>
+                        <z>0</z>
+                        <width>72</width>
+                        <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                     </world>
                 </instance>
             </instances>

@@ -171,7 +171,7 @@
                     <param id="1" name="Message">&quot;Card: &quot; &amp; LocalStorage.ItemValue</param>
                 </action>
                 <action id="0" name="Set selection" sid="731447534333508" type="RevealCard">
-                    <param id="0" name="Index">LocalStorage.ItemValue - 1</param>
+                    <param id="0" name="Index">LocalStorage.ItemValue</param>
                 </action>
             </actions>
         </event-block>

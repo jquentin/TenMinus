@@ -265,6 +265,9 @@
         <object-type name="LocalStorage" sid="908550649737532">
             <plugin id="LocalStorage" />
         </object-type>
+        <object-type name="EditPassword" sid="279602278730939">
+            <plugin id="Button" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
