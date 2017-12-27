@@ -66,6 +66,14 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="-9" name="Set value" sid="613622095794196" type="System">
+                                    <param id="0" name="Variable">selectedOpponentIndex</param>
+                                    <param id="1" name="Value">SelectOpponent.SelectedIndex</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="222711413286282" type="System">
+                                    <param id="0" name="Variable">selectedOpponent</param>
+                                    <param id="1" name="Value">SelectOpponent.SelectedText</param>
+                                </action>
                                 <action id="-9" name="Set value" sid="244975688582236" type="System">
                                     <param id="0" name="Variable">creatingGameWithExistingOpponent</param>
                                     <param id="1" name="Value">FALSE</param>

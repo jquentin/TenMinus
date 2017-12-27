@@ -30,6 +30,41 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="505333131315627">
+            <conditions>
+                <condition id="-18" name="On created" sid="673183194373737" type="ChooseOpponent" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="992533569368120">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="447135606664594" type="System">
+                            <param id="0" name="Variable">creatingGameWithExistingOpponent</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">TRUE</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="233525891426814" type="ChooseOpponent">
+                            <param id="0" name="Text">SelectOpponent.SelectedText</param>
+                        </action>
+                        <action id="3" name="Set visible" sid="704128859057693" type="ChooseOpponent">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="932045414782022">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="525322259790387" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set visible" sid="828211625507113" type="ChooseOpponent">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="698213329208806">
             <conditions>
                 <condition id="6" name="On object clicked" sid="856665222830753" type="Mouse">

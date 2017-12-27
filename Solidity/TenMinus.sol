@@ -13,6 +13,8 @@ contract owned {
 contract TenMinus is owned {
 
     event GameStateChanged(address player1, address player2, uint8 state);
+    
+    event GameComplete(address player1, address player2, uint8 player1Card, uint8 player2Card);
 
      modifier sentEnoughCashToPlay()
     {
@@ -73,14 +75,18 @@ contract TenMinus is owned {
             throw;
         if (gamesInitiated[opponent][msg.sender].state != 0 && gamesInitiated[opponent][msg.sender].state != 3)
             throw;
+        
+        // if players have never initiated a game, add them to each other's interactingPlayers
+        if (gamesInitiated[msg.sender][opponent].state == 0 && gamesInitiated[opponent][msg.sender].state == 0)
+        {
+            interactingPlayers[opponent].push(msg.sender);
+            interactingPlayers[msg.sender].push(opponent); 
+        }
             
         gamesInitiated[opponent][msg.sender].state = 0;
         
         gamesInitiated[msg.sender][opponent].state = 1;
         gamesInitiated[msg.sender][opponent].player1CardHash = cardHash;
-        
-        interactingPlayers[opponent].push(msg.sender);
-        interactingPlayers[msg.sender].push(opponent);
         
         GameStateChanged(msg.sender, opponent, 1);
         
@@ -110,32 +116,6 @@ contract TenMinus is owned {
         msg.sender.transfer((uint256)(base + result) * 1 finney);
         opponent.transfer((uint256)(base - result) * 1 finney);
         
-        // Remove the opponent from interactingPlayers[msg.sender]
-        uint length = interactingPlayers[msg.sender].length;
-        for (uint8 i = 0 ; i < length ; i++)
-        {
-            if (interactingPlayers[msg.sender][i] == opponent)
-            {
-                interactingPlayers[msg.sender][i] = interactingPlayers[msg.sender][length - 1];
-                delete interactingPlayers[msg.sender][length - 1];
-                break;
-            }
-        }
-        interactingPlayers[msg.sender].length--;
-        
-        // Remove myself from interactingPlayers[opponent]
-        length = interactingPlayers[opponent].length;
-        for (i = 0 ; i < length ; i++)
-        {
-            if (interactingPlayers[opponent][i] == msg.sender)
-            {
-                interactingPlayers[opponent][i] = interactingPlayers[opponent][length - 1];
-                delete interactingPlayers[opponent][length - 1];
-                break;
-            }
-        }
-        interactingPlayers[opponent].length--;
-        
         gamesCompleted[msg.sender][opponent].player1Card = card;
         gamesCompleted[msg.sender][opponent].player2Card = gamesInitiated[msg.sender][opponent].player2Card;
         
@@ -143,6 +123,8 @@ contract TenMinus is owned {
         gamesCompleted[opponent][msg.sender].player2Card = 0;
         
         GameStateChanged(msg.sender, opponent, 3);
+        
+        GameComplete(msg.sender, opponent, gamesInitiated[msg.sender][opponent].player1Card, gamesInitiated[msg.sender][opponent].player2Card);
     }
     
     // Returns the number of coins player 1 wins (negative if player 2 wins)
