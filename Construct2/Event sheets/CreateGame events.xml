@@ -280,7 +280,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="971224337428462" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
-                            <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
+                            <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                         </action>
                         <action id="0" name="Call function" sid="701223509589866" type="Function">
                             <param id="0" name="Name">&quot;SelectCreatedGame&quot;</param>

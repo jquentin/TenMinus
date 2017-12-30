@@ -165,7 +165,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="451652329884082" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
-                            <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
+                            <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
                         </action>
                         <action id="0" name="Call" sid="345564020080980" type="EthereumContract">
                             <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
