@@ -251,7 +251,7 @@
         </event-block>
         <event-block sid="909804708305498">
             <conditions>
-                <condition id="3" name="On function callback" sid="629928026530607" type="EthereumContract">
+                <condition id="3" name="On function callback" sid="629928026530607" type="Ethereum">
                     <param id="0" name="ID">&quot;InitiateGameReceipt&quot;</param>
                 </condition>
             </conditions>
@@ -261,7 +261,7 @@
                 <event-block sid="579127685526829">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="225544664647069" type="System">
-                            <param id="0" name="First value">EthereumContract.CurrentCallbackResponse</param>
+                            <param id="0" name="First value">Ethereum.CurrentCallbackResponse</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">&quot;&quot;</param>
                         </condition>
