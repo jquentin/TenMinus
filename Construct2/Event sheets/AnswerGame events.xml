@@ -69,9 +69,9 @@
                 <action id="-16" name="Wait" sid="426264205067213" type="System">
                     <param id="0" name="Seconds">0.7</param>
                 </action>
-                <action id="1" name="Send" sid="788821619587043" type="Ethereum">
+                <action id="1" name="Send" sid="788821619587043" type="EthereumContract">
                     <param id="0" name="Name with parameters types">&quot;AnswerGame&quot;</param>
-                    <param id="1" name="Parameter {n}">SelectOpponent.SelectedText{###}Card.value</param>
+                    <param id="1" name="Parameter {n}"></param>
                     <param id="2" name="Callback id">&quot;AnswerGame&quot;</param>
                     <param id="3" name="Value">int(Ethereum.ToWei(4, &quot;finney&quot;))</param>
                 </action>
@@ -79,18 +79,18 @@
         </event-block>
         <event-block sid="530060454153161">
             <conditions>
-                <condition id="3" name="On function callback" sid="271790116474239" type="Ethereum">
+                <condition id="3" name="On function callback" sid="271790116474239" type="EthereumContract">
                     <param id="0" name="ID">&quot;AnswerGame&quot;</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="665709068644918" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="-9" name="Set value" sid="171139869517654" type="System">
                     <param id="0" name="Variable">transactionHash</param>
-                    <param id="1" name="Value">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Value">EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="3" name="Get Transaction Receipt" sid="891720849088991" type="Ethereum">
                     <param id="0" name="Hash">transactionHash</param>
@@ -108,7 +108,7 @@
         </event-block>
         <event-block sid="757558003148871">
             <conditions>
-                <condition id="3" name="On function callback" sid="535917233842760" type="Ethereum">
+                <condition id="3" name="On function callback" sid="535917233842760" type="EthereumContract">
                     <param id="0" name="ID">&quot;AnswerGameReceipt&quot;</param>
                 </condition>
             </conditions>
@@ -118,7 +118,7 @@
                 <event-block bookmark="1" sid="732149157721404">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="896587860768896" type="System">
-                            <param id="0" name="First value">Ethereum.CurrentCallbackResponse</param>
+                            <param id="0" name="First value">EthereumContract.CurrentCallbackResponse</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">&quot;&quot;</param>
                         </condition>
@@ -137,9 +137,9 @@
                     <actions>
                         <action id="0" name="Call function" sid="361543814958773" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
-                            <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                            <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
                         </action>
-                        <action id="0" name="Call" sid="749924603559774" type="Ethereum">
+                        <action id="0" name="Call" sid="749924603559774" type="EthereumContract">
                             <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
                             <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
                             <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
@@ -150,18 +150,18 @@
         </event-block>
         <event-block sid="657651030305606">
             <conditions>
-                <condition id="1" name="On function success" sid="925796485597201" type="Ethereum">
+                <condition id="1" name="On function success" sid="925796485597201" type="EthereumContract">
                     <param id="0" name="ID">&quot;GetGameState&quot;</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="255461143852276" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="0" name="Call function" sid="309617859375432" type="Function">
                     <param id="0" name="Name">&quot;AnalyseGameState&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="0" name="Call function" sid="637199777682432" type="Function">
                     <param id="0" name="Name">&quot;GoToGameScene&quot;</param>

@@ -18,7 +18,7 @@
                     <param id="0" name="Variable">LoadingStartTime</param>
                     <param id="1" name="Value">time</param>
                 </action>
-                <action id="0" name="Call" sid="732548515759150" type="Ethereum">
+                <action id="0" name="Call" sid="732548515759150" type="EthereumContract">
                     <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
                     <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
                     <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
@@ -27,18 +27,18 @@
         </event-block>
         <event-block sid="252584746402338">
             <conditions>
-                <condition id="1" name="On function success" sid="210386149518548" type="Ethereum">
+                <condition id="1" name="On function success" sid="210386149518548" type="EthereumContract">
                     <param id="0" name="ID">&quot;GetGameState&quot;</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="959261002677507" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="0" name="Call function" sid="183089283760433" type="Function">
                     <param id="0" name="Name">&quot;AnalyseGameState&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="-16" name="Wait" sid="284342405863526" type="System">
                     <param id="0" name="Seconds">max(0, LoadingStartTime + MIN_LOADING_TIME - time)</param>

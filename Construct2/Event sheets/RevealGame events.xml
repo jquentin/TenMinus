@@ -93,7 +93,7 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="1" name="Send" sid="580316573633003" type="Ethereum">
+                <action id="1" name="Send" sid="580316573633003" type="EthereumContract">
                     <param id="0" name="Name with parameters types">&quot;Reveal&quot;</param>
                     <param id="1" name="Parameter {n}">SelectOpponent.SelectedText{###}int(RevealCard.SelectedText){###}ChoosePassword.Text</param>
                     <param id="2" name="Callback id">&quot;Reveal&quot;</param>
@@ -111,20 +111,95 @@
         </event-block>
         <event-block sid="162330874668774">
             <conditions>
-                <condition id="1" name="On function success" sid="835180617294314" type="Ethereum">
+                <condition id="1" name="On function success" sid="835180617294314" type="EthereumContract">
                     <param id="0" name="ID">&quot;Reveal&quot;</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="762554836442677" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="987323833623393" type="Function">
+                    <param id="0" name="Name">&quot;ShowWaitingWheel&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Waiting for mining...&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="225550777794566" type="System">
+                    <param id="0" name="Variable">transactionHash</param>
+                    <param id="1" name="Value">EthereumContract.CurrentCallbackResponse</param>
+                </action>
+                <action id="3" name="Get Transaction Receipt" sid="792143047997035" type="Ethereum">
+                    <param id="0" name="Hash">transactionHash</param>
+                    <param id="1" name="Callback id">&quot;RevealGameReceipt&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="519012424938589">
+            <conditions>
+                <condition id="3" name="On function callback" sid="874834189197279" type="EthereumContract">
+                    <param id="0" name="ID">&quot;RevealGameReceipt&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>As long as the receipt is not ready, keep asking</comment>
+                <event-block bookmark="1" sid="277587274024083">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="402514239746055" type="System">
+                            <param id="0" name="First value">EthereumContract.CurrentCallbackResponse</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Get Transaction Receipt" sid="949358665144475" type="Ethereum">
+                            <param id="0" name="Hash">transactionHash</param>
+                            <param id="1" name="Callback id">&quot;RevealGameReceipt&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="897242589472784">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="300542407135468" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="451652329884082" type="Function">
+                            <param id="0" name="Name">&quot;Log&quot;</param>
+                            <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
+                        </action>
+                        <action id="0" name="Call" sid="345564020080980" type="EthereumContract">
+                            <param id="0" name="Name with parameters types">&quot;GetGameState&quot;</param>
+                            <param id="1" name="Parameter {n}">SelectOpponent.SelectedText</param>
+                            <param id="2" name="Callback id">&quot;GetGameState&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="726049814825999">
+            <conditions>
+                <condition id="1" name="On function success" sid="564410209923552" type="EthereumContract">
+                    <param id="0" name="ID">&quot;GetGameState&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="746259083138704" type="Function">
+                    <param id="0" name="Name">&quot;Log&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;On GetGameState Success, response: &quot; &amp;  EthereumContract.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="169688873894979" type="Function">
+                    <param id="0" name="Name">&quot;AnalyseGameState&quot;</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
+                </action>
+                <action id="0" name="Call function" sid="778562534659601" type="Function">
+                    <param id="0" name="Name">&quot;GoToGameScene&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>
         <event-block sid="754525797600981">
             <conditions>
-                <condition id="2" name="On function error" sid="859391067644626" type="Ethereum">
+                <condition id="2" name="On function error" sid="859391067644626" type="EthereumContract">
                     <param id="0" name="ID">&quot;Reveal&quot;</param>
                 </condition>
                 <condition id="-20" name="Pick highest/lowest" sid="517004157765253" type="Card">
@@ -135,7 +210,7 @@
             <actions>
                 <action id="0" name="Call function" sid="444613901542593" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackError</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackError</param>
                 </action>
                 <action id="0" name="Call function" sid="324547479022492" type="Function">
                     <param id="0" name="Name">&quot;FlipCard&quot;</param>

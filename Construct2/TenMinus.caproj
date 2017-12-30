@@ -14,6 +14,7 @@
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Ethereum" version="1">Ethereum</plugin>
+        <plugin author="Scirra" id="EthereumContract" version="1">Ethereum Contract</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
@@ -267,6 +268,9 @@
         </object-type>
         <object-type name="EditPassword" sid="279602278730939">
             <plugin id="Button" />
+        </object-type>
+        <object-type global="1" name="EthereumContract" sid="704553610329683">
+            <plugin id="EthereumContract" />
         </object-type>
     </object-folder>
     <families />

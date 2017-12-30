@@ -155,7 +155,7 @@
                 <action id="-16" name="Wait" sid="244135529228905" type="System">
                     <param id="0" name="Seconds">0.7</param>
                 </action>
-                <action id="1" name="Send" sid="143132007873688" type="Ethereum">
+                <action id="1" name="Send" sid="143132007873688" type="EthereumContract">
                     <param id="0" name="Name with parameters types">&quot;InitiateGame&quot;</param>
                     <param id="1" name="Parameter {n}">ChooseOpponent.Text{###}Ethereum.Sha3(ChoosePassword.Text, str(Card.value))</param>
                     <param id="2" name="Callback id">&quot;InitiateGame&quot;</param>
@@ -165,18 +165,18 @@
         </event-block>
         <event-block sid="953668786658219">
             <conditions>
-                <condition id="1" name="On function success" sid="827688255001418" type="Ethereum">
+                <condition id="1" name="On function success" sid="827688255001418" type="EthereumContract">
                     <param id="0" name="ID">&quot;InitiateGame&quot;</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="0" name="Call function" sid="578000122972193" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="-9" name="Set value" sid="694114381601439" type="System">
                     <param id="0" name="Variable">transactionHash</param>
-                    <param id="1" name="Value">Ethereum.CurrentCallbackResponse</param>
+                    <param id="1" name="Value">EthereumContract.CurrentCallbackResponse</param>
                 </action>
                 <action id="3" name="Get Transaction Receipt" sid="793140027706781" type="Ethereum">
                     <param id="0" name="Hash">transactionHash</param>
@@ -213,7 +213,7 @@
         </event-block>
         <event-block sid="634923369481010">
             <conditions>
-                <condition id="2" name="On function error" sid="825376062625947" type="Ethereum">
+                <condition id="2" name="On function error" sid="825376062625947" type="EthereumContract">
                     <param id="0" name="ID">&quot;InitiateGame&quot;</param>
                 </condition>
                 <condition id="-14" name="Pick by unique ID" sid="747731373021093" type="Card">
@@ -223,7 +223,7 @@
             <actions>
                 <action id="0" name="Call function" sid="349988046956104" type="Function">
                     <param id="0" name="Name">&quot;Log&quot;</param>
-                    <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackError</param>
+                    <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackError</param>
                 </action>
                 <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="198804852254947" type="Card">
                     <param id="0" name="Tweened property">8</param>
@@ -251,7 +251,7 @@
         </event-block>
         <event-block sid="909804708305498">
             <conditions>
-                <condition id="3" name="On function callback" sid="629928026530607" type="Ethereum">
+                <condition id="3" name="On function callback" sid="629928026530607" type="EthereumContract">
                     <param id="0" name="ID">&quot;InitiateGameReceipt&quot;</param>
                 </condition>
             </conditions>
@@ -261,7 +261,7 @@
                 <event-block sid="579127685526829">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="225544664647069" type="System">
-                            <param id="0" name="First value">Ethereum.CurrentCallbackResponse</param>
+                            <param id="0" name="First value">EthereumContract.CurrentCallbackResponse</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">&quot;&quot;</param>
                         </condition>
@@ -280,7 +280,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="971224337428462" type="Function">
                             <param id="0" name="Name">&quot;Log&quot;</param>
-                            <param id="1" name="Parameter {n}">Ethereum.CurrentCallbackResponse</param>
+                            <param id="1" name="Parameter {n}">EthereumContract.CurrentCallbackResponse</param>
                         </action>
                         <action id="0" name="Call function" sid="701223509589866" type="Function">
                             <param id="0" name="Name">&quot;SelectCreatedGame&quot;</param>

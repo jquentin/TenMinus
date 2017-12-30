@@ -465,7 +465,7 @@
                         <tooltip>The password that will be used to encrypt your choice of card. Save it if you plan to reveal your card on a different computer or browser.</tooltip>
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>
-                        <read-only>Yes</read-only>
+                        <read-only>No</read-only>
                         <spell-check>No</spell-check>
                         <type>Text</type>
                         <auto-font-size>Yes</auto-font-size>
