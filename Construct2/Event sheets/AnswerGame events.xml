@@ -71,7 +71,7 @@
                 </action>
                 <action id="1" name="Send" sid="788821619587043" type="EthereumContract">
                     <param id="0" name="Name with parameters types">&quot;AnswerGame&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                    <param id="1" name="Parameter {n}">SelectOpponent.selectedText{###}Card.value</param>
                     <param id="2" name="Callback id">&quot;AnswerGame&quot;</param>
                     <param id="3" name="Value">int(Ethereum.ToWei(4, &quot;finney&quot;))</param>
                 </action>
