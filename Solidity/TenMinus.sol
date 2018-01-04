@@ -53,6 +53,7 @@ contract TenMinus is owned {
         bytes32 player1CardHash;
         uint8 player1Card;
         uint8 player2Card;
+        uint timeAnswered;
     }
     
     mapping (address => address[]) interactingPlayers;
@@ -90,6 +91,7 @@ contract TenMinus is owned {
             throw;
         gamesInitiated[opponent][msg.sender].state = 2;
         gamesInitiated[opponent][msg.sender].player2Card = card;
+        gamesInitiated[opponent][msg.sender].timeAnswered = now;
         GameStateChanged(opponent, msg.sender, 2);
     }
     
@@ -126,6 +128,36 @@ contract TenMinus is owned {
             return signDif * absDif;
         else if (absDif > 5 && absDif < 10)
             return - signDif * ((int8)(10) - absDif);
+    }
+    
+    function CancelGame (address opponent)
+    {
+        if (gamesInitiated[msg.sender][opponent].state == 1)
+        {
+            msg.sender.transfer(4 finney);
+            return;
+        }
+        throw;
+    }
+    
+    function GiveUpGame (address opponent)
+    {
+        if (gamesInitiated[msg.sender][opponent].state == 2 || gamesInitiated[opponent][msg.sender].state == 2)
+        {
+            opponent.transfer(8 finney);
+            return;
+        }
+        throw;
+    }
+    
+    function Claim (address opponent)
+    {
+        if (gamesInitiated[msg.sender][opponent].state == 2 && now >= gamesInitiated[msg.sender][opponent].timeAnswered + 1 days)
+        {
+            msg.sender.transfer(8 finney);
+            return;
+        }
+        throw;
     }
     
     function GetPlayersInteracting () constant returns (address[])
