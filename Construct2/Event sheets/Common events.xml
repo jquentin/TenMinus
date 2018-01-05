@@ -279,7 +279,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="820518555565540" type="YourAccount">
-                            <param id="0" name="Text">&quot;Your account:&quot; &amp; newline &amp; Ethereum.CurrentAccount</param>
+                            <param id="0" name="Text">&quot;Your account:&quot; &amp; newline &amp; Ethereum.Coinbase</param>
                         </action>
                         <action id="0" name="Call function" sid="114954950071944" type="Function">
                             <param id="0" name="Name">&quot;UpdateOpponentList&quot;</param>

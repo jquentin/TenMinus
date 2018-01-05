@@ -3,7 +3,7 @@
     <!--This is a UI state file - its content describes the user interface settings when the event sheet was last open.
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
-    <show-addaction-links>1</show-addaction-links>
+    <show-addaction-links>0</show-addaction-links>
     <scroll-pos>0</scroll-pos>
     <conditions-column>449</conditions-column>
     <actions-namecolumn>145</actions-namecolumn>
