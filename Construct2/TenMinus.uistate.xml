@@ -10,14 +10,14 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="2">Login</layout>
+        <layout active="1" order="2">Login</layout>
         <layout order="5">Complete</layout>
         <layout order="12">CreateGame</layout>
         <layout order="13">RevealGame</layout>
         <event-sheet order="0">CreateGame events</event-sheet>
         <event-sheet order="1">AnswerGame events</event-sheet>
         <event-sheet order="3">RevealGame events</event-sheet>
-        <event-sheet active="1" order="4">Common events</event-sheet>
+        <event-sheet order="4">Common events</event-sheet>
         <event-sheet order="6">Complete events</event-sheet>
         <event-sheet order="7">Loading events</event-sheet>
         <event-sheet order="8">WaitingForAnswer events</event-sheet>
